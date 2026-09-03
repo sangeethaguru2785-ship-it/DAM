@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections � Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header class="site-nav">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html">Asset Library</a></li>
+                    <li class="active"><a href="collections.html">Collections</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="users.html">Users &amp; Roles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a href="login.html" class="nav-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Asset Library</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="users.html">Users &amp; Roles</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="mobile-nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-heart">
+                <div>
+                    <div class="page-crumb"><i class="fas fa-house"></i> Home <i class="fas fa-chevron-right"></i> Collections</div>
+                    <h1>Collections</h1>
+                    <p>Curated groups of assets that stay in sync automatically � share a link and stop sending files.</p>
+                </div>
+                <div class="page-hero-actions">
+                    <button class="btn-gold btn-large" id="newCollectionBtn"><i class="fas fa-plus"></i> New Collection</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Stats -->
+    <section class="lib-stats">
+        <div class="container">
+            <div class="lib-stat-card anim">
+                <div class="stat-icon"><i class="fas fa-folder-tree"></i></div>
+                <div><strong><span class="count" data-count="48">0</span></strong><span>Collections</span></div>
+            </div>
+            <div class="lib-stat-card anim">
+                <div class="stat-icon"><i class="fas fa-photo-film"></i></div>
+                <div><strong><span class="count" data-count="128">0</span>K</strong><span>Assets organized</span></div>
+            </div>
+            <div class="lib-stat-card anim">
+                <div class="stat-icon"><i class="fas fa-share-nodes"></i></div>
+                <div><strong><span class="count" data-count="26">0</span>K</strong><span>Shared links</span></div>
+            </div>
+            <div class="lib-stat-card anim">
+                <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                <div><strong><span class="count" data-count="38">0</span></strong><span>Auto-sync active</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="co">
+        <div class="container">
+
+            <div class="co-feature anim">
+                <img src="assets/images/unsplash-1558655146-9f40138edfeb.webp" alt="Brand Refresh featured collection">
+                <div class="co-feature-content">
+                    <div>
+                        <span class="co-chip"><i class="fas fa-star"></i> Featured</span>
+                        <h2>Brand Refresh 2026</h2>
+                        <p>Everything approved for the global brand refresh � locked logos, color palettes, hero imagery, and motion masters.</p>
+                    </div>
+                    <div class="co-stats">
+                        <div class="co-stat"><strong>248</strong><span>Assets</span></div>
+                        <div class="co-stat"><strong>1.9 GB</strong><span>Total</span></div>
+                        <div class="co-stat"><strong>16</strong><span>Contributors</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-head co-head anim">
+                <h2>All Collections</h2>
+                <p>Browse every curated group in your workspace.</p>
+            </div>
+
+            <div class="collections-grid">
+
+                <a href="library.html" class="collection-card anim">
+                    <div class="co-cover">
+                        <img src="assets/images/unsplash-1522202176988-66273c2fd55f-800w.webp" alt="Marketing Campaigns" loading="lazy">
+                        <div class="co-count"><i class="fas fa-images"></i> 186 assets</div>
+                    </div>
+                    <div class="co-body">
+                        <h3>Marketing Campaigns</h3>
+                        <p class="co-desc">Live and upcoming campaign creative across paid, social, and product marketing.</p>
+                        <div class="co-owner">
+                            <img src="assets/images/unsplash-1494790108377-be9c29b29330-120w.webp" alt="Owner">
+                            <div><strong>Amara Lewis</strong><span>Updated 2h ago</span></div>
+                            <a href="library.html"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="library.html" class="collection-card anim">
+                    <div class="co-cover">
+                        <img src="assets/images/unsplash-1441986300917-64674bd600d8-800w.webp" alt="Product Photography" loading="lazy">
+                        <div class="co-count"><i class="fas fa-images"></i> 340 assets</div>
+                    </div>
+                    <div class="co-body">
+                        <h3>Product Photography</h3>
+                        <p class="co-desc">Final studio shots and lifestyle imagery for every SKU in the current catalog.</p>
+                        <div class="co-owner">
+                            <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-120w.webp" alt="Owner">
+                            <div><strong>Derek Kim</strong><span>Updated 1d ago</span></div>
+                            <a href="library.html"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="library.html" class="collection-card anim">
+                    <div class="co-cover">
+                        <img src="assets/images/unsplash-1485846234645-a62644f84728-800w.webp" alt="Brand Video Library" loading="lazy">
+                        <div class="co-count"><i class="fas fa-images"></i> 64 assets</div>
+                    </div>
+                    <div class="co-body">
+                        <h3>Brand Video Library</h3>
+                        <p class="co-desc">Approved commercials, explainers, and behind-the-scenes video for all regions.</p>
+                        <div class="co-owner">
+                            <img src="assets/images/unsplash-1534528741775-53994a69daeb-120w.webp" alt="Owner">
+                            <div><strong>Marco Reyes</strong><span>Updated 3d ago</span></div>
+                            <a href="library.html"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="library.html" class="collection-card anim">
+                    <div class="co-cover">
+                        <img src="assets/images/unsplash-1561070791-2526d30994b5-800w.webp" alt="Brand & Identity" loading="lazy">
+                        <div class="co-count"><i class="fas fa-images"></i> 58 assets</div>
+                    </div>
+                    <div class="co-body">
+                        <h3>Brand &amp; Identity</h3>
+                        <p class="co-desc">Logos, typography, color systems, and brand marks � the source of truth.</p>
+                        <div class="co-owner">
+                            <img src="assets/images/unsplash-1544005313-94ddf0286df2-120w.webp" alt="Owner">
+                            <div><strong>Nina Alvarez</strong><span>Updated 5d ago</span></div>
+                            <a href="library.html"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="library.html" class="collection-card anim">
+                    <div class="co-cover">
+                        <img src="assets/images/unsplash-1554224155-6726b3ff858f-800w.webp" alt="Reports & Presentations" loading="lazy">
+                        <div class="co-count"><i class="fas fa-images"></i> 92 assets</div>
+                    </div>
+                    <div class="co-body">
+                        <h3>Reports &amp; Presentations</h3>
+                        <p class="co-desc">Investor decks, quarterly reports, and sales enablement material.</p>
+                        <div class="co-owner">
+                            <img src="assets/images/unsplash-1506794778202-cad84cf45f1d-120w.webp" alt="Owner">
+                            <div><strong>Elena Marsh</strong><span>Updated 1w ago</span></div>
+                            <a href="library.html"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="library.html" class="collection-card anim">
+                    <div class="co-cover">
+                        <img src="assets/images/unsplash-1522202176988-66273c2fd55f-800w.webp" alt="Culture & Events" loading="lazy">
+                        <div class="co-count"><i class="fas fa-images"></i> 120 assets</div>
+                    </div>
+                    <div class="co-body">
+                        <h3>Culture &amp; Events</h3>
+                        <p class="co-desc">Team offsites, employer brand, and event photography through the years.</p>
+                        <div class="co-owner">
+                            <img src="assets/images/unsplash-1580489944761-15a19d654956-120w.webp" alt="Owner">
+                            <div><strong>Sofia Bennett</strong><span>Updated 2w ago</span></div>
+                            <a href="library.html"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Updated -->
+    <section class="lib-trending">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-clock-rotate-left"></i></span>
+                <h2>Recently Updated</h2>
+                <p>See what your team is actively curating right now.</p>
+            </div>
+            <div class="trending-strip">
+
+                <a href="library.html" class="trend-card anim">
+                    <div class="trend-thumb">
+                        <span class="trend-badge">Updated</span>
+                        <img src="assets/images/unsplash-1558655146-9f40138edfeb-600w.webp" alt="Brand Refresh collection" loading="lazy">
+                    </div>
+                    <div class="trend-body">
+                        <strong>Brand Refresh 2026</strong>
+                        <span><i class="fas fa-pen"></i> Edited 2h ago � 248 assets</span>
+                    </div>
+                </a>
+
+                <a href="library.html" class="trend-card anim">
+                    <div class="trend-thumb">
+                        <span class="trend-badge">Updated</span>
+                        <img src="assets/images/unsplash-1522202176988-66273c2fd55f-600w.webp" alt="Marketing Campaigns collection" loading="lazy">
+                    </div>
+                    <div class="trend-body">
+                        <strong>Marketing Campaigns</strong>
+                        <span><i class="fas fa-pen"></i> Edited 2h ago � 186 assets</span>
+                    </div>
+                </a>
+
+                <a href="library.html" class="trend-card anim">
+                    <div class="trend-thumb">
+                        <span class="trend-badge">New</span>
+                        <img src="assets/images/unsplash-1561070791-2526d30994b5-600w.webp" alt="Brand Identity collection" loading="lazy">
+                    </div>
+                    <div class="trend-body">
+                        <strong>Brand &amp; Identity</strong>
+                        <span><i class="fas fa-pen"></i> Edited 5d ago � 58 assets</span>
+                    </div>
+                </a>
+
+                <a href="library.html" class="trend-card anim">
+                    <div class="trend-thumb">
+                        <span class="trend-badge">Shared</span>
+                        <img src="assets/images/unsplash-1441986300917-64674bd600d8-600w.webp" alt="Product Photography collection" loading="lazy">
+                    </div>
+                    <div class="trend-body">
+                        <strong>Product Photography</strong>
+                        <span><i class="fas fa-share-nodes"></i> Shared to 12 people</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- How Collections Work -->
+    <section class="showcase alt lib-features">
+        <div class="container">
+            <div class="showcase-body anim">
+                <span class="section-label">How Collections Work</span>
+                <h2>One link. Always in sync. Never out of date.</h2>
+                <p>Collections bundle related assets into a single shareable workspace that updates itself as your library changes.</p>
+                <ul class="showcase-list">
+                    <li><i class="fas fa-arrows-rotate"></i> Auto-sync every asset that matches your rules</li>
+                    <li><i class="fas fa-link"></i> One share link with custom permissions</li>
+                    <li><i class="fas fa-user-shield"></i> Role-based access for contributors and viewers</li>
+                    <li><i class="fas fa-activity"></i> Live activity feed of every change</li>
+                </ul>
+                <a href="users.html" class="btn-primary">Manage Permissions</a>
+            </div>
+            <div class="showcase-media anim">
+                <div class="showcase-media-window">
+                    <div class="sm-topbar">
+                        <div class="sm-dots"><span></span><span></span><span></span></div>
+                        <div class="sm-url">app.stackly.io/collections/brand-refresh-2026</div>
+                    </div>
+                    <div class="sm-body">
+                        <div class="sm-tags">
+                            <span class="sm-tag"><i class="fas fa-lock"></i> Viewers: 40</span>
+                            <span class="sm-tag"><i class="fas fa-user-gear"></i> Editors: 16</span>
+                            <span class="sm-tag"><i class="fas fa-bolt"></i> Auto-sync: On</span>
+                        </div>
+                        <div class="sm-folder-row">
+                            <div class="sm-folder-icon"><i class="fas fa-folder"></i></div>
+                            <div class="sm-folder-info"><strong>Hero Imagery</strong><span>Updated just now</span></div>
+                            <div class="sm-folder-count">86</div>
+                        </div>
+                        <div class="sm-folder-row">
+                            <div class="sm-folder-icon"><i class="fas fa-folder"></i></div>
+                            <div class="sm-folder-info"><strong>Color &amp; Logos</strong><span>Auto-synced</span></div>
+                            <div class="sm-folder-count">32</div>
+                        </div>
+                        <div class="sm-folder-row">
+                            <div class="sm-folder-icon"><i class="fas fa-folder"></i></div>
+                            <div class="sm-folder-info"><strong>Motion Masters</strong><span>Auto-synced</span></div>
+                            <div class="sm-folder-count">130</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="how">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-rocket"></i></span>
+                <h2>Get Started in Minutes</h2>
+                <p>Build your first collection the Stackly way.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card anim">
+                    <span class="step-num">01</span>
+                    <div class="feature-icon"><i class="fas fa-plus"></i></div>
+                    <h3>Create a collection</h3>
+                    <p>Name it, pick a cover, and choose the folder it lives in.</p>
+                </div>
+                <div class="step-card anim">
+                    <span class="step-num">02</span>
+                    <div class="feature-icon"><i class="fas fa-drag-drop"></i></div>
+                    <h3>Add your assets</h3>
+                    <p>Drag files in or set auto-sync rules to pull from any folder.</p>
+                </div>
+                <div class="step-card anim">
+                    <span class="step-num">03</span>
+                    <div class="feature-icon"><i class="fas fa-share-nodes"></i></div>
+                    <h3>Share a link</h3>
+                    <p>Invite your team with roles and a secure, revocable link.</p>
+                </div>
+                <div class="step-card anim">
+                    <span class="step-num">04</span>
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Review &amp; collaborate</h3>
+                    <p>Comment, request changes, and approve right inside the collection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="format-strip">
+        <div class="container">
+            <h2>Collections work where you already work.</h2>
+            <p class="fs-sub">Connect your favorite tools and push assets into any collection instantly.</p>
+            <div class="integrations-row">
+                <span class="format-chip"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</span>
+                <span class="format-chip"><i class="fab fa-figma"></i> Figma</span>
+                <span class="format-chip"><i class="fab fa-slack"></i> Slack</span>
+                <span class="format-chip"><i class="fab fa-shopify"></i> Shopify</span>
+                <span class="format-chip"><i class="fab fa-google-drive"></i> Google Drive</span>
+                <span class="format-chip"><i class="fab fa-microsoft"></i> SharePoint</span>
+                <span class="format-chip"><i class="fab fa-trello"></i> Trello</span>
+                <span class="format-chip"><i class="fab fa-dropbox"></i> Dropbox</span>
+                <span class="format-chip"><i class="fab fa-github"></i> GitHub</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections CTA -->
+    <section class="upload-cta">
+        <div class="uc-bg"></div>
+        <div class="container">
+            <h2>Create your <span class="gold-text">first collection</span>.</h2>
+            <p>Dry up the scattered files and give your team one trusted place to find everything.</p>
+            <div class="cta-buttons">
+                <button class="btn-gold btn-large" id="createCollectionBtn"><i class="fas fa-plus"></i> New Collection</button>
+                <a href="contact.html" class="btn-outline btn-large">Talk to Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Newsletter Section -->
+    <section class="newsletter-cta">
+        <div class="nc-lines"></div>
+        <div class="container">
+            <div class="newsletter-cta-inner">
+                <div class="newsletter-cta-text">
+                    <span class="newsletter-cta-label"><i class="fas fa-paper-plane"></i> Stay Updated</span>
+                    <h2>Stay Ahead <span class="gold-text">with Stackly</span></h2>
+                    <p class="nc-desc">Join 30,000+ creative leaders getting product updates, DAM tips, and exclusive industry insights straight to their inbox — no spam, ever.</p>
+                </div>
+                <div class="newsletter-cta-form-wrap">
+                    <form class="newsletter-cta-form">
+                        <div class="nc-input-row">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="nc-btn">Subscribe <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <p class="nc-note"><i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.</p>
+                    </form>
+                    <div class="newsletter-cta-success"><i class="fas fa-check-circle"></i> Thanks for subscribing! Check your inbox to confirm.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand footer-logo">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+                    </a>
+                    <p>Stackly is a team of seasoned media engineers and brand strategists crafting the ultimate home for your digital assets.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="xi-x" aria-hidden="true"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Asset Library</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="users.html">Users &amp; Roles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Integrations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
+                        <li><a href="#"><i class="fab fa-figma"></i> Figma</a></li>
+                        <li><a href="#"><i class="fab fa-slack"></i> Slack</a></li>
+                        <li><a href="#"><i class="fab fa-shopify"></i> Shopify</a></li>
+                        <li><a href="#"><i class="fab fa-google-drive"></i> Google Drive</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 355 S Grand Ave, Suite 100, Los Angeles</li>
+                        <li><i class="fas fa-envelope"></i> hello@stackly.io</li>
+                        <li><i class="fas fa-phone-alt"></i> 0165.406.6456</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

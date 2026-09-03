@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <!-- 404 Error Section -->
+    <section class="error-page">
+        <div class="container error-page-inner">
+            <a href="index.html" class="error-logo" aria-label="Stackly Home">
+                <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+            </a>
+            <div class="error-status" aria-hidden="true">404</div>
+            <span class="error-eyebrow"><i class="fas fa-triangle-exclamation"></i> Page Not Found</span>
+            <h1>Oops, this asset <span class="gold-text">went missing</span> from the library.</h1>
+            <p class="error-desc">The page you're looking for doesn't exist, was moved, or has been archived. Let's get you back to your creative work.</p>
+
+            <div class="error-actions">
+                <a href="javascript:void(0)" id="goBackBtn2" class="btn-gold btn-large"><i class="fas fa-arrow-left"></i> Go Back</a>
+                <a href="index.html" class="btn-outline btn-large"><i class="fas fa-house"></i> Back to Home</a>
+            </div>
+
+            <div class="error-popular">
+                <span class="error-popular-label">Popular destinations</span>
+                <div class="error-popular-links">
+                    <a href="library.html"><i class="fas fa-box-archive"></i> Asset Library</a>
+                    <a href="collections.html"><i class="fas fa-folder"></i> Collections</a>
+                    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                    <a href="users.html"><i class="fas fa-users"></i> Users &amp; Roles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function goBack() {
+            if (document.referrer) {
+                history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+        document.getElementById('goBackBtn2').addEventListener('click', goBack);
+    </script>
+</body>
+</html>

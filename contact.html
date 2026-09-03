@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header class="site-nav">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html">Asset Library</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li><a href="users.html">Users &amp; Roles</a></li>
+                    <li class="active"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a href="login.html" class="nav-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Asset Library</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="users.html">Users &amp; Roles</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="mobile-nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-heart">
+                <div>
+                    <div class="page-crumb"><i class="fas fa-house"></i> Home <i class="fas fa-chevron-right"></i> Contact</div>
+                    <h1>Get in Touch</h1>
+                    <p>Questions, demos, migrations, or partnerships — our team replies within one business day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <div class="contact-grid">
+
+                <div class="contact-cards">
+
+                    <div class="contact-card anim">
+                        <div class="cc-icon"><i class="fas fa-envelope"></i></div>
+                        <h4>Email Us</h4>
+                        <p>For sales, support, and general questions.</p>
+                        <a href="mailto:hello@stackly.io">hello@stackly.io</a>
+                    </div>
+
+                    <div class="contact-card anim">
+                        <div class="cc-icon"><i class="fas fa-phone-alt"></i></div>
+                        <h4>Call Us</h4>
+                        <p>Mon–Fri, 9am to 6pm PT.</p>
+                        <a href="tel:01654066456">0165.406.6456</a>
+                    </div>
+
+                    <div class="contact-card anim">
+                        <div class="cc-icon"><i class="fas fa-location-dot"></i></div>
+                        <h4>Visit Us</h4>
+                        <p>We'd love to show you around.</p>
+                        <a href="https://maps.google.com/?q=355+S+Grand+Ave+Los+Angeles" target="_blank" rel="noopener">355 S Grand Ave, Suite 100<br>Los Angeles, CA 90071</a>
+                    </div>
+
+                    <div class="contact-card anim">
+                        <div class="cc-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Response Time</h4>
+                        <p>Average first reply across all channels.</p>
+                        <span style="font-weight:600; color:var(--navy); font-size:.92rem;">Under 2 hours</span>
+                    </div>
+
+                </div>
+
+                <div class="contact-form-card anim">
+                    <h3>Send us a message</h3>
+                    <p>Fill out the form and we'll get back to you shortly.</p>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-grid">
+                            <input type="text" id="contactName" placeholder="Full name" required>
+                            <input type="email" id="contactEmail" placeholder="Email address" required>
+                        </div>
+                        <select class="filter-select" id="contactTopic">
+                            <option>Book a demo</option>
+                            <option>Sales inquiry</option>
+                            <option>Migrations</option>
+                            <option>Technical support</option>
+                            <option>Partnerships</option>
+                        </select>
+                        <textarea id="contactMessage" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        <button type="submit" class="btn-primary btn-large" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        <div class="form-success" id="contactSuccess"><i class="fas fa-check-circle"></i> Message sent! We'll be in touch within one business day.</div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="contact-map anim" id="contactMap">
+                <img src="assets/images/unsplash-1477959858617-67f85cf4f1df-1600w.webp" alt="Downtown Los Angeles map view">
+                <div class="map-pin">
+                    <i class="fas fa-location-dot"></i>
+                    <span>Stackly HQ · 355 S Grand Ave</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Office Locations -->
+    <section class="us-sec contact-band alt-bg">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-globe"></i></span>
+                <h2>Our Global Offices</h2>
+                <p>Reach the team closest to you — or work with us from anywhere in the world.</p>
+            </div>
+            <div class="offices-grid">
+                <div class="office-card anim">
+                    <div class="oc-head">
+                        <div class="oc-icon"><i class="fas fa-building"></i></div>
+                        <h3>Los Angeles — HQ</h3>
+                    </div>
+                    <span class="oc-tag"><i class="fas fa-star"></i> Headquarters</span>
+                    <p>Home to our founders, product, and design teams in the heart of downtown LA.</p>
+                    <ul class="oc-meta">
+                        <li><i class="fas fa-location-dot"></i> 355 S Grand Ave, Suite 100, Los Angeles, CA 90071</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:01654066456">0165.406.6456</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hello@stackly.io">hello@stackly.io</a></li>
+                    </ul>
+                </div>
+                <div class="office-card anim d1">
+                    <div class="oc-head">
+                        <div class="oc-icon"><i class="fas fa-city"></i></div>
+                        <h3>New York</h3>
+                    </div>
+                    <span class="oc-tag"><i class="fas fa-briefcase"></i> Sales &amp; Partnerships</span>
+                    <p>Serving enterprise brands and agency partners across the East Coast.</p>
+                    <ul class="oc-meta">
+                        <li><i class="fas fa-location-dot"></i> 111 W 57th St, Suite 800, New York, NY 10019</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:12125550180">+1 212.555.0180</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:nyc@stackly.io">nyc@stackly.io</a></li>
+                    </ul>
+                </div>
+                <div class="office-card anim d2">
+                    <div class="oc-head">
+                        <div class="oc-icon"><i class="fas fa-tower-broadcast"></i></div>
+                        <h3>London</h3>
+                    </div>
+                    <span class="oc-tag"><i class="fas fa-users"></i> Support &amp; Success</span>
+                    <p>Supporting customers across EMEA with local, dedicated account teams.</p>
+                    <ul class="oc-meta">
+                        <li><i class="fas fa-location-dot"></i> 30 St Mary Axe, Suite 1200, London EC3A 8BF</li>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:+442070948020">+44 20 7094 8020</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:london@stackly.io">london@stackly.io</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Channels & Help Center -->
+    <section class="support-band">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-headset"></i></span>
+                <h2>Support &amp; Help Center</h2>
+                <p>Find the right resource fast — or talk to a real human, any time.</p>
+            </div>
+            <div class="support-grid">
+                <div class="support-channel anim">
+                    <div class="sc-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with a specialist in real time during business hours.</p>
+                    <a href="#" class="sc-link">Start a chat <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="support-channel anim d1">
+                    <div class="sc-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Help Center</h3>
+                    <p>Browse guides, tutorials, and troubleshooting articles.</p>
+                    <a href="#" class="sc-link">Read guides <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="support-channel anim d2">
+                    <div class="sc-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>Support Email</h3>
+                    <p>Send details and we'll reply within one business day.</p>
+                    <a href="mailto:support@stackly.io" class="sc-link">Email us <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="support-channel anim d3">
+                    <div class="sc-icon"><i class="fas fa-circle-check"></i></div>
+                    <h3>System Status</h3>
+                    <p>Check live uptime and service status for every region.</p>
+                    <a href="#" class="sc-link">View status <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="us-sec contact-band">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-circle-question"></i></span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to the questions we hear most. Can't find yours? Just reach out.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item anim">
+                    <button class="faq-q">How fast does a demo get scheduled? <i class="fas fa-plus"></i></button>
+                    <div class="faq-a"><p>Most demos are booked within one business day. Pick a time that suits you through our scheduler and we'll confirm instantly.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">Can you help migrate my existing asset library? <i class="fas fa-plus"></i></button>
+                    <div class="faq-a"><p>Yes. Every plan includes dedicated migration specialists who can import from Google Drive, NAS, or another DAM — usually with zero downtime.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">What happens after I sign up for the free trial? <i class="fas fa-plus"></i></button>
+                    <div class="faq-a"><p>You'll get full access for 14 days, no credit card required. Our team will reach out to help you set up folders, roles, and your first uploads.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">Do you offer a dedicated support plan for enterprise? <i class="fas fa-plus"></i></button>
+                    <div class="faq-a"><p>Absolutely. Enterprise customers get a named success manager, 24/7 priority support, and a 99.9% uptime SLA on every contract.</p></div>
+                </div>
+                <div class="faq-item anim">
+                    <button class="faq-q">What are your support hours? <i class="fas fa-plus"></i></button>
+                    <div class="faq-a"><p>Live chat is available Mon–Fri, 9am to 6pm PT. Email support is monitored around the clock and self-service help is available 24/7.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team / Leadership -->
+    <section class="us-sec contact-band alt-bg">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-user-tie"></i></span>
+                <h2>Talk to Our Leadership</h2>
+                <p>Connect directly with the people who shape Stackly's product and vision.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card anim">
+                    <div class="team-photo">
+                        <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-600w.webp" alt="Alex Morgan">
+                        <div class="team-social">
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Alex Morgan</h3>
+                        <span>Chief Executive Officer</span>
+                        <p><i class="fas fa-envelope"></i> alex@stackly.io</p>
+                    </div>
+                </div>
+                <div class="team-card anim d1">
+                    <div class="team-photo">
+                        <img src="assets/images/unsplash-1573496359142-b8d87734a5a2-600w.webp" alt="Priya Sharma">
+                        <div class="team-social">
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Priya Sharma</h3>
+                        <span>Chief Product Officer</span>
+                        <p><i class="fas fa-envelope"></i> priya@stackly.io</p>
+                    </div>
+                </div>
+                <div class="team-card anim d2">
+                    <div class="team-photo">
+                        <img src="assets/images/unsplash-1551836022-d5d88e9218df-600w.webp" alt="Daniel Brooks">
+                        <div class="team-social">
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Daniel Brooks</h3>
+                        <span>VP of Sales</span>
+                        <p><i class="fas fa-envelope"></i> daniel@stackly.io</p>
+                    </div>
+                </div>
+                <div class="team-card anim d3">
+                    <div class="team-photo">
+                        <img src="assets/images/unsplash-1534528741775-53994a69daeb-600w.webp" alt="Emily Chen">
+                        <div class="team-social">
+                            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="404.html" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Emily Chen</h3>
+                        <span>Head of Customer Success</span>
+                        <p><i class="fas fa-envelope"></i> emily@stackly.io</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials static">
+        <div class="container testimonials-inner">
+            <span class="section-label light">What Our Customers Say</span>
+            <div class="testimonial-slide active">
+                <h3>“Support that actually feels like a partnership.”</h3>
+                <p class="testimonial-quote">“Stackly’s team helped us migrate 200,000+ assets and set up our roles in a single afternoon. Every question got a thoughtful, fast answer.”</p>
+                <div class="testimonial-person">
+                    <img src="assets/images/unsplash-1544005313-94ddf0286df2-200w.webp" alt="Sarah Mitchell">
+                    <div>
+                        <strong>Sarah Mitchell</strong>
+                        <span>Director of Marketing, Northwind</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Newsletter Section -->
+    <section class="newsletter-cta">
+        <div class="nc-lines"></div>
+        <div class="container">
+            <div class="newsletter-cta-inner">
+                <div class="newsletter-cta-text">
+                    <span class="newsletter-cta-label"><i class="fas fa-paper-plane"></i> Stay Updated</span>
+                    <h2>Stay Ahead <span class="gold-text">with Stackly</span></h2>
+                    <p class="nc-desc">Join 30,000+ creative leaders getting product updates, DAM tips, and exclusive industry insights straight to their inbox — no spam, ever.</p>
+                </div>
+                <div class="newsletter-cta-form-wrap">
+                    <form class="newsletter-cta-form">
+                        <div class="nc-input-row">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="nc-btn">Subscribe <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <p class="nc-note"><i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.</p>
+                    </form>
+                    <div class="newsletter-cta-success"><i class="fas fa-check-circle"></i> Thanks for subscribing! Check your inbox to confirm.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand footer-logo">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+                    </a>
+                    <p>Stackly is a team of seasoned media engineers and brand strategists crafting the ultimate home for your digital assets.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="xi-x" aria-hidden="true"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Asset Library</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="users.html">Users &amp; Roles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Integrations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
+                        <li><a href="#"><i class="fab fa-figma"></i> Figma</a></li>
+                        <li><a href="#"><i class="fab fa-slack"></i> Slack</a></li>
+                        <li><a href="#"><i class="fab fa-shopify"></i> Shopify</a></li>
+                        <li><a href="#"><i class="fab fa-google-drive"></i> Google Drive</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 355 S Grand Ave, Suite 100, Los Angeles</li>
+                        <li><i class="fas fa-envelope"></i> hello@stackly.io</li>
+                        <li><i class="fas fa-phone-alt"></i> 0165.406.6456</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users &amp; Roles � Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header class="site-nav">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html">Asset Library</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="analytics.html">Analytics</a></li>
+                    <li class="active"><a href="users.html">Users &amp; Roles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a href="login.html" class="nav-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Asset Library</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="users.html">Users &amp; Roles</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="mobile-nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-heart">
+                <div>
+                    <div class="page-crumb"><i class="fas fa-house"></i> Home <i class="fas fa-chevron-right"></i> Users &amp; Roles</div>
+                    <h1>Users &amp; Roles</h1>
+                    <p>Invite your team, assign granular permissions, and keep every action fully audited.</p>
+                </div>
+                <div class="page-hero-actions">
+                    <button class="btn-gold btn-large" id="inviteBtn"><i class="fas fa-user-plus"></i> Invite Member</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="users">
+        <div class="container">
+
+            <div class="users-stats">
+                <div class="user-stat anim">
+                    <div class="kpi-icon"><i class="fas fa-users"></i></div>
+                    <strong><span class="count" data-count="120">0</span></strong>
+                    <span>Total members</span>
+                </div>
+                <div class="user-stat anim">
+                    <div class="kpi-icon"><i class="fas fa-user-check"></i></div>
+                    <strong><span class="count" data-count="46">0</span></strong>
+                    <span>Active today</span>
+                </div>
+                <div class="user-stat anim">
+                    <div class="kpi-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <strong><span class="count" data-count="18">0</span></strong>
+                    <span>Admins</span>
+                </div>
+                <div class="user-stat anim">
+                    <div class="kpi-icon"><i class="fas fa-clock"></i></div>
+                    <strong><span class="count" data-count="7">0</span></strong>
+                    <span>Pending invites</span>
+                </div>
+            </div>
+
+            <div class="users-workspace">
+
+                <div class="panel-card members-panel anim">
+                    <div class="panel-head">
+                        <h3>Team Members</h3>
+                        <div class="search-box member-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="memberSearch" placeholder="Search members...">
+                        </div>
+                    </div>
+                    <div class="member-table">
+                        <div class="member-row member-head">
+                            <span class="member-id">Member</span>
+                            <span>Role</span>
+                            <span class="member-status">Status</span>
+                            <span class="member-last">Last active</span>
+                        </div>
+
+                        <div class="member-row" data-name="Amara Lewis">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1494790108377-be9c29b29330-120w.webp" alt="Amara Lewis">
+                                <span><strong>Amara Lewis</strong><em>amara@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge admin">Admin</span></span>
+                            <span class="member-status"><span class="status-dot online"></span> Online</span>
+                            <span class="member-last">Now</span>
+                        </div>
+
+                        <div class="member-row" data-name="Derek Kim">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-120w.webp" alt="Derek Kim">
+                                <span><strong>Derek Kim</strong><em>derek@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge editor">Editor</span></span>
+                            <span class="member-status"><span class="status-dot online"></span> Online</span>
+                            <span class="member-last">12 min ago</span>
+                        </div>
+
+                        <div class="member-row" data-name="Nina Alvarez">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1544005313-94ddf0286df2-120w.webp" alt="Nina Alvarez">
+                                <span><strong>Nina Alvarez</strong><em>nina@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge editor">Editor</span></span>
+                            <span class="member-status"><span class="status-dot away"></span> Away</span>
+                            <span class="member-last">1 h ago</span>
+                        </div>
+
+                        <div class="member-row" data-name="Marco Reyes">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1534528741775-53994a69daeb-120w.webp" alt="Marco Reyes">
+                                <span><strong>Marco Reyes</strong><em>marco@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge viewer">Viewer</span></span>
+                            <span class="member-status"><span class="status-dot online"></span> Online</span>
+                            <span class="member-last">26 min ago</span>
+                        </div>
+
+                        <div class="member-row" data-name="Sofia Bennett">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1580489944761-15a19d654956-120w.webp" alt="Sofia Bennett">
+                                <span><strong>Sofia Bennett</strong><em>sofia@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge editor">Editor</span></span>
+                            <span class="member-status"><span class="status-dot offline"></span> Offline</span>
+                            <span class="member-last">Yesterday</span>
+                        </div>
+
+                        <div class="member-row" data-name="Elena Marsh">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1506794778202-cad84cf45f1d-120w.webp" alt="Elena Marsh">
+                                <span><strong>Elena Marsh</strong><em>elena@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge admin">Admin</span></span>
+                            <span class="member-status"><span class="status-dot online"></span> Online</span>
+                            <span class="member-last">5 min ago</span>
+                        </div>
+
+                        <div class="member-row" data-name="Jon Bell">
+                            <span class="member-id">
+                                <img src="assets/images/unsplash-1500648767791-00dcc994a43e-120w.webp" alt="Jon Bell">
+                                <span><strong>Jon Bell</strong><em>jon@stackly.io</em></span>
+                            </span>
+                            <span><span class="role-badge guest">Guest</span></span>
+                            <span class="member-status"><span class="status-dot offline"></span> Offline</span>
+                            <span class="member-last">3 d ago</span>
+                        </div>
+                    </div>
+
+                    <div class="empty-state" id="memberEmpty">
+                        <i class="fas fa-user-slash"></i>
+                        <h3>No members found</h3>
+                        <p>Try a different search.</p>
+                    </div>
+                </div>
+
+                <div class="panel-card invite-card anim">
+                    <h3><i class="fas fa-envelope-open-text"></i> Invite a Member</h3>
+                    <p>Send an email invitation with the right level of access.</p>
+                    <form id="inviteForm" class="invite-form">
+                        <div class="form-grid">
+                            <input type="text" id="inviteName" placeholder="Full name" required>
+                            <input type="email" id="inviteEmail" placeholder="Email address" required>
+                        </div>
+                        <select class="filter-select" id="inviteRole">
+                            <option value="Admin">Admin</option>
+                            <option value="Editor" selected>Editor</option>
+                            <option value="Viewer">Viewer</option>
+                            <option value="Guest">Guest</option>
+                        </select>
+                        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Invitation</button>
+                    </form>
+                    <div class="invite-success" id="inviteSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Invitation sent!</strong>
+                        <span id="inviteSuccessText">Welcome to Stackly.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-card perm-panel anim">
+                <div class="panel-head">
+                    <h3>Role Permissions</h3>
+                    <span style="font-size:.75rem; color:var(--muted);"><i class="fas fa-shield-halved"></i> Granular access control</span>
+                </div>
+                <div class="perm-grid">
+
+                    <div class="perm-card">
+                        <div class="perm-head">
+                            <i class="fas fa-user-shield"></i>
+                            <h4>Full Control</h4>
+                            <span class="role-badge admin">Admin</span>
+                        </div>
+                        <p>Manage users, roles, collections, settings, and every asset in the workspace.</p>
+                        <ul class="perm-list">
+                            <li><i class="fas fa-check"></i> Upload &amp; delete any asset</li>
+                            <li><i class="fas fa-check"></i> Manage team &amp; billing</li>
+                            <li><i class="fas fa-check"></i> Full audit log access</li>
+                        </ul>
+                    </div>
+
+                    <div class="perm-card">
+                        <div class="perm-head">
+                            <i class="fas fa-pen-nib"></i>
+                            <h4>Create &amp; Edit</h4>
+                            <span class="role-badge editor">Editor</span>
+                        </div>
+                        <p>Upload, tag, version, and organize assets. Share collections with anyone.</p>
+                        <ul class="perm-list">
+                            <li><i class="fas fa-check"></i> Upload &amp; edit assets</li>
+                            <li><i class="fas fa-check"></i> Create collections</li>
+                            <li><i class="fas fa-check"></i> Download approved originals</li>
+                        </ul>
+                    </div>
+
+                    <div class="perm-card">
+                        <div class="perm-head">
+                            <i class="fas fa-eye"></i>
+                            <h4>Read Only</h4>
+                            <span class="role-badge viewer">Viewer</span>
+                        </div>
+                        <p>Browse, preview, and download approved sizes. No editing or sharing rights.</p>
+                        <ul class="perm-list">
+                            <li><i class="fas fa-check"></i> Search &amp; preview</li>
+                            <li><i class="fas fa-check"></i> Download sized versions</li>
+                            <li><i class="fas fa-check"></i> Comment on assets</li>
+                        </ul>
+                    </div>
+
+                    <div class="perm-card">
+                        <div class="perm-head">
+                            <i class="fas fa-user-clock"></i>
+                            <h4>Limited Access</h4>
+                            <span class="role-badge guest">Guest</span>
+                        </div>
+                        <p>Time-boxed access to specific collections only, for external partners.</p>
+                        <ul class="perm-list">
+                            <li><i class="fas fa-check"></i> Access shared collections</li>
+                            <li><i class="fas fa-check"></i> Preview &amp; download</li>
+                            <li><i class="fa-solid fa-xmark"></i> No upload permissions</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Guide -->
+    <section class="us-sec">
+        <div class="container">
+            <div class="role-guide anim">
+                <div class="rg-icon"><i class="fas fa-shield-halved"></i></div>
+                <div>
+                    <h3>Choose the right access level</h3>
+                    <p>Start everyone at the least access they need, then scale up as trust grows. Admins manage the workspace, Editors create and publish, Viewers browse, and Guests get time-boxed access to specific collections.</p>
+                    <div class="rg-chips">
+                        <span class="rg-chip"><i class="fas fa-gauge-high"></i> Admin � full control</span>
+                        <span class="rg-chip"><i class="fas fa-pen-nib"></i> Editor � create &amp; edit</span>
+                        <span class="rg-chip"><i class="fas fa-eye"></i> Viewer � read only</span>
+                        <span class="rg-chip"><i class="fas fa-user-clock"></i> Guest � limited</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Log -->
+    <section class="us-sec alt-bg">
+        <div class="container">
+            <div class="an-card anim">
+                <div class="an-head">
+                    <h3>Recent Audit Activity</h3>
+                    <span class="an-icon"><i class="fas fa-clipboard-list"></i></span>
+                </div>
+                <ul class="audit-log">
+                    <li class="audit-row">
+                        <span class="audit-ico"><i class="fas fa-user-lock"></i></span>
+                        <div class="audit-body">
+                            <strong>Admin changed Amara's role to Admin</strong>
+                            <div class="audit-cat">Role � by Elena Marsh</div>
+                            <span class="audit-badge">Permission</span>
+                        </div>
+                        <span class="audit-row-time">2h ago</span>
+                    </li>
+                    <li class="audit-row">
+                        <span class="audit-ico"><i class="fas fa-file-export"></i></span>
+                        <div class="audit-body">
+                            <strong>Exported 248 assets from Brand Refresh</strong>
+                            <div class="audit-cat">Export � by Amara Lewis</div>
+                            <span class="audit-badge">Transfer</span>
+                        </div>
+                        <span class="audit-row-time">5h ago</span>
+                    </li>
+                    <li class="audit-row">
+                        <span class="audit-ico"><i class="fas fa-user-plus"></i></span>
+                        <div class="audit-body">
+                            <strong>Invited jon@stackly.io as Guest</strong>
+                            <div class="audit-cat">Invite � by Marco Reyes</div>
+                            <span class="audit-badge">Access</span>
+                        </div>
+                        <span class="audit-row-time">1d ago</span>
+                    </li>
+                    <li class="audit-row">
+                        <span class="audit-ico"><i class="fas fa-key"></i></span>
+                        <div class="audit-body">
+                            <strong>Revoked API token for automation</strong>
+                            <div class="audit-cat">Security � by Elena Marsh</div>
+                            <span class="audit-badge">Security</span>
+                        </div>
+                        <span class="audit-row-time">2d ago</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Access -->
+    <section class="us-sec us-enterprise">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-building-shield"></i></span>
+                <h2>Enterprise-Grade Access</h2>
+                <p>Governance and safety built for teams of every size.</p>
+            </div>
+            <div class="an-feature-grid">
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-fingerprint"></i></div>
+                    <div>
+                        <h3>Single Sign-On</h3>
+                        <p>Connect your identity provider for one-click login across the whole organization.</p>
+                    </div>
+                </div>
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-shield"></i></div>
+                    <div>
+                        <h3>Granular Permissions</h3>
+                        <p>Fine-tune access at the asset, folder, and collection level with custom roles.</p>
+                    </div>
+                </div>
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h3>Expiring Access</h3>
+                        <p>Time-boxed guest links that auto-expire to keep external sharing safe.</p>
+                    </div>
+                </div>
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-file-shield"></i></div>
+                    <div>
+                        <h3>Full Audit Trail</h3>
+                        <p>Every action logged with who, what, and when for effortless compliance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="enterprise-badges anim">
+                <span class="e-badge"><i class="fas fa-check-circle"></i> SOC 2 Type II</span>
+                <span class="e-badge"><i class="fas fa-check-circle"></i> GDPR Ready</span>
+                <span class="e-badge"><i class="fas fa-check-circle"></i> 99.99% Uptime</span>
+                <span class="e-badge"><i class="fas fa-check-circle"></i> Role-Based SSO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Tips -->
+    <section class="us-sec alt-bg">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-lightbulb"></i></span>
+                <h2>Access Management Tips</h2>
+                <p>Small habits that keep permissions tidy and safe.</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card anim">
+                    <span class="tip-num">01</span>
+                    <h3><i class="fas fa-lock"></i> Least privilege</h3>
+                    <p>Grant the minimum access each role needs and avoid blanket editor accounts.</p>
+                </div>
+                <div class="tip-card anim">
+                    <span class="tip-num">02</span>
+                    <h3><i class="fas fa-rotate"></i> Review quarterly</h3>
+                    <p>Audit access every quarter and revoke roles for people who've changed teams.</p>
+                </div>
+                <div class="tip-card anim">
+                    <span class="tip-num">03</span>
+                    <h3><i class="fas fa-user-clock"></i> Use guests wisely</h3>
+                    <p>Route external partners through time-boxed guest links instead of full accounts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SSO & Identity Integrations -->
+    <section class="format-strip">
+        <div class="container">
+            <h2>Connect your identity provider.</h2>
+            <p class="fs-sub">Provision users and enforce SSO with the tools you already trust.</p>
+            <div class="integrations-row">
+                <span class="format-chip"><i class="fa-solid fa-key"></i> SAML 2.0</span>
+                <span class="format-chip"><i class="fa-solid fa-circle-check"></i> Okta</span>
+                <span class="format-chip"><i class="fa-brands fa-microsoft"></i> Microsoft Entra</span>
+                <span class="format-chip"><i class="fa-brands fa-google"></i> Google Workspace</span>
+                <span class="format-chip"><i class="fa-solid fa-shield-halved"></i> OneLogin</span>
+                <span class="format-chip"><i class="fa-solid fa-user-shield"></i> SCIM</span>
+                <span class="format-chip"><i class="fa-solid fa-fingerprint"></i> MFA / TOTP</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Users CTA -->
+    <section class="upload-cta">
+        <div class="uc-bg"></div>
+        <div class="container">
+            <h2>Grow your team with <span class="gold-text">confidence</span>.</h2>
+            <p>Invite collaborators, assign the right roles, and keep your assets safe with full control.</p>
+            <div class="cta-buttons">
+                <button class="btn-gold btn-large" id="inviteBtn2"><i class="fas fa-user-plus"></i> Invite Member</button>
+                <a href="contact.html" class="btn-outline btn-large">Talk to Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Newsletter Section -->
+    <section class="newsletter-cta">
+        <div class="nc-lines"></div>
+        <div class="container">
+            <div class="newsletter-cta-inner">
+                <div class="newsletter-cta-text">
+                    <span class="newsletter-cta-label"><i class="fas fa-paper-plane"></i> Stay Updated</span>
+                    <h2>Stay Ahead <span class="gold-text">with Stackly</span></h2>
+                    <p class="nc-desc">Join 30,000+ creative leaders getting product updates, DAM tips, and exclusive industry insights straight to their inbox — no spam, ever.</p>
+                </div>
+                <div class="newsletter-cta-form-wrap">
+                    <form class="newsletter-cta-form">
+                        <div class="nc-input-row">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="nc-btn">Subscribe <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <p class="nc-note"><i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.</p>
+                    </form>
+                    <div class="newsletter-cta-success"><i class="fas fa-check-circle"></i> Thanks for subscribing! Check your inbox to confirm.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand footer-logo">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+                    </a>
+                    <p>Stackly is a team of seasoned media engineers and brand strategists crafting the ultimate home for your digital assets.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="xi-x" aria-hidden="true"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Asset Library</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="users.html">Users &amp; Roles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Integrations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
+                        <li><a href="#"><i class="fab fa-figma"></i> Figma</a></li>
+                        <li><a href="#"><i class="fab fa-slack"></i> Slack</a></li>
+                        <li><a href="#"><i class="fab fa-shopify"></i> Shopify</a></li>
+                        <li><a href="#"><i class="fab fa-google-drive"></i> Google Drive</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 355 S Grand Ave, Suite 100, Los Angeles</li>
+                        <li><i class="fas fa-envelope"></i> hello@stackly.io</li>
+                        <li><i class="fas fa-phone-alt"></i> 0165.406.6456</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard â€” Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="db-page">
+
+    <!-- â•â•â•â•â•â•â•â•â•â• SIDEBAR â•â•â•â•â•â•â•â•â•â• -->
+    <aside class="db-sidebar" id="dbSidebar">
+        <div class="db-side-top">
+            <img src="assets/images/logo.webp" alt="Stackly" class="db-side-logo">
+            <div class="db-side-title">Stackly<small>Admin Console</small></div>
+        </div>
+
+        <nav class="db-side-nav">
+            <div class="db-nav-label">Workspace</div>
+            <button class="db-nav-item active" data-tab="overview"><i class="fas fa-th-large"></i> Overview</button>
+            <button class="db-nav-item" data-tab="users"><i class="fas fa-users"></i> Users <span class="nav-badge">120</span></button>
+            <button class="db-nav-item" data-tab="assets"><i class="fas fa-photo-video"></i> Assets</button>
+            <button class="db-nav-item" data-tab="folders"><i class="fas fa-folder-tree"></i> Folders</button>
+            <button class="db-nav-item" data-tab="permissions"><i class="fas fa-user-shield"></i> Permissions</button>
+
+            <div class="db-nav-label">Insights</div>
+            <button class="db-nav-item" data-tab="analytics"><i class="fas fa-chart-line"></i> Analytics</button>
+            <button class="db-nav-item" data-tab="logs"><i class="fas fa-scroll"></i> Activity Logs</button>
+
+            <div class="db-nav-label">System</div>
+            <button class="db-nav-item" data-tab="settings"><i class="fas fa-cog"></i> Settings</button>
+        </nav>
+
+        <div class="db-side-foot">
+            <div class="db-side-user">
+                <img src="assets/images/unsplash-1494790108377-be9c29b29330-80w.webp" alt="Amara" class="db-side-avatar">
+                <div class="db-side-user-info">
+                    <strong>Amara Lewis</strong>
+                    <span>admin@stackly.io</span>
+                </div>
+            </div>
+            <button class="db-logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <!-- â•â•â•â•â•â•â•â•â•â• MAIN â•â•â•â•â•â•â•â•â•â• -->
+    <main class="db-main">
+        <header class="db-topbar">
+            <div class="db-top-left">
+                <button class="db-menu-btn" id="dbMenuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+                <div class="db-top-title">
+                    <h2 id="dbTopTitle">Dashboard Overview</h2>
+                    <p>Welcome back, Amara</p>
+                </div>
+            </div>
+            <div class="db-top-right">
+                <div class="db-top-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search assets, usersâ€¦">
+                </div>
+                <div class="db-top-icons">
+                    <button class="db-top-icon" aria-label="Notifications"><i class="fas fa-bell"></i><span class="db-notif-dot"></span></button>
+                    <button class="db-top-icon n-hide" aria-label="Messages"><i class="fas fa-envelope"></i></button>
+                </div>
+                <img src="assets/images/unsplash-1494790108377-be9c29b29330-80w.webp" alt="Amara" class="db-top-avatar">
+            </div>
+        </header>
+
+        <div class="db-content">
+
+            <!-- â•â•â• OVERVIEW â•â•â• -->
+            <section class="db-section active" id="sec-overview">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Overview</h3>
+                        <p>At-a-glance health of your organization's asset workspace.</p>
+                    </div>
+                    <div class="db-head-actions">
+                        <button class="db-btn-outline db-btn-sm"><i class="fas fa-upload"></i> Quick Upload</button>
+                        <button class="db-btn-gold db-btn-sm"><i class="fas fa-user-plus"></i> Invite User</button>
+                    </div>
+                </div>
+
+                <div class="db-kpi-row">
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic gold"><i class="fas fa-database"></i></div>
+                        <div class="db-kpi-info">
+                            <div class="db-kpi-label">Total Assets</div>
+                            <div class="db-kpi-num count" data-count="12480">0</div>
+                            <div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 12.4%</div>
+                        </div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic blue"><i class="fas fa-users"></i></div>
+                        <div class="db-kpi-info">
+                            <div class="db-kpi-label">Total Users</div>
+                            <div class="db-kpi-num count" data-count="328">0</div>
+                            <div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 8 new</div>
+                        </div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic green"><i class="fas fa-upload"></i></div>
+                        <div class="db-kpi-info">
+                            <div class="db-kpi-label">Uploads (30d)</div>
+                            <div class="db-kpi-num count" data-count="1842">0</div>
+                            <div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 6.2%</div>
+                        </div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic purple"><i class="fas fa-hdd"></i></div>
+                        <div class="db-kpi-info">
+                            <div class="db-kpi-label">Storage Used</div>
+                            <div class="db-kpi-num">386<small> GB</small></div>
+                            <div class="db-kpi-delta neutral"><i class="fas fa-circle-notch"></i> of 1 TB</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="db-grid-2">
+                    <div class="db-card">
+                        <div class="db-card-head">
+                            <h4><i class="fas fa-clock"></i> Recent Uploads</h4>
+                            <button class="db-card-link">View all <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <div class="db-row-list">
+                            <div class="db-row">
+                                <div class="db-thumb p1"><i class="fas fa-file-pdf"></i></div>
+                                <div class="db-row-txt"><strong>Brand_Guidelines_v3.pdf</strong><span>PDF Â· 4.2 MB Â· Marketing</span></div>
+                                <div class="db-row-side"><span class="db-row-time">2 min ago</span><button class="db-mini-btn" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p2"><i class="fas fa-file-image"></i></div>
+                                <div class="db-row-txt"><strong>Product_Hero_Retina.png</strong><span>PNG Â· 8.1 MB Â· Product</span></div>
+                                <div class="db-row-side"><span class="db-row-time">18 min ago</span><button class="db-mini-btn" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p3"><i class="fas fa-file-code"></i></div>
+                                <div class="db-row-txt"><strong>Website_Bundle_2026.zip</strong><span>ZIP Â· 24 MB Â· Website</span></div>
+                                <div class="db-row-side"><span class="db-row-time">1 hr ago</span><button class="db-mini-btn" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p4"><i class="fas fa-file-video"></i></div>
+                                <div class="db-row-txt"><strong>Launch_Teaser_Final.mp4</strong><span>MP4 Â· 120 MB Â· Video</span></div>
+                                <div class="db-row-side"><span class="db-row-time">3 hrs ago</span><button class="db-mini-btn" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p5"><i class="fas fa-file-audio"></i></div>
+                                <div class="db-row-txt"><strong>Podcast_Ep_12.wav</strong><span>WAV Â· 56 MB Â· Audio</span></div>
+                                <div class="db-row-side"><span class="db-row-time">5 hrs ago</span><button class="db-mini-btn" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-head">
+                            <h4><i class="fas fa-hourglass-half"></i> Pending Approvals</h4>
+                            <span class="db-badge red">3</span>
+                        </div>
+                        <div class="db-row-list">
+                            <div class="db-row">
+                                <div class="db-row-ic p1"><i class="fas fa-file-image"></i></div>
+                                <div class="db-row-txt"><strong>Campaign_Banner_B.webp</strong><span>by Derek Kim</span></div>
+                                <div class="db-row-side">
+                                    <button class="db-mini-btn ok" title="Approve"><i class="fas fa-check"></i></button>
+                                    <button class="db-mini-btn no" title="Reject"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-row-ic p2"><i class="fas fa-file-pdf"></i></div>
+                                <div class="db-row-txt"><strong>Q3_Report_draft.pdf</strong><span>by Maya Chen</span></div>
+                                <div class="db-row-side">
+                                    <button class="db-mini-btn ok" title="Approve"><i class="fas fa-check"></i></button>
+                                    <button class="db-mini-btn no" title="Reject"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-row-ic p3"><i class="fas fa-file-video"></i></div>
+                                <div class="db-row-txt"><strong>Explainer_Reel_30s.mp4</strong><span>by Leo Vega</span></div>
+                                <div class="db-row-side">
+                                    <button class="db-mini-btn ok" title="Approve"><i class="fas fa-check"></i></button>
+                                    <button class="db-mini-btn no" title="Reject"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="db-mt"></div>
+                        <div class="db-card-head" style="margin-bottom:8px;">
+                            <h4><i class="fas fa-tags"></i> Category Breakdown</h4>
+                        </div>
+                        <div class="db-bars">
+                            <div class="db-bar-row"><span class="db-bar-label">Imgs</span><div class="db-bar-track"><div class="db-bar-fill" style="width:78%"></div></div><span class="db-bar-val">5,900</span></div>
+                            <div class="db-bar-row"><span class="db-bar-label">Docs</span><div class="db-bar-track"><div class="db-bar-fill" style="width:52%"></div></div><span class="db-bar-val">3,200</span></div>
+                            <div class="db-bar-row"><span class="db-bar-label">Video</span><div class="db-bar-track"><div class="db-bar-fill" style="width:34%"></div></div><span class="db-bar-val">1,740</span></div>
+                            <div class="db-bar-row"><span class="db-bar-label">Audio</span><div class="db-bar-track"><div class="db-bar-fill" style="width:16%"></div></div><span class="db-bar-val">860</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• USERS â•â•â• -->
+            <section class="db-section" id="sec-users">
+                <div class="db-section-head">
+                    <div>
+                        <h3>User Management</h3>
+                        <p>Invite, manage roles, and control access for your team.</p>
+                    </div>
+                    <div class="db-head-actions">
+                        <button class="db-btn-outline db-btn-sm"><i class="fas fa-filter"></i> Filter</button>
+                        <button class="db-btn-gold db-btn-sm"><i class="fas fa-user-plus"></i> Invite User</button>
+                    </div>
+                </div>
+
+                <div class="db-kpi-row">
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic gold"><i class="fas fa-users"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Total Users</div><div class="db-kpi-num count" data-count="328">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic blue"><i class="fas fa-user-tie"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Active (30d)</div><div class="db-kpi-num count" data-count="284">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic green"><i class="fas fa-user-plus"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Admins</div><div class="db-kpi-num count" data-count="12">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic purple"><i class="fas fa-user-clock"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Pending Invites</div><div class="db-kpi-num count" data-count="7">0</div></div>
+                    </div>
+                </div>
+
+                <div class="db-card db-mb">
+                    <div class="db-table-wrap">
+                        <table class="db-table">
+                            <thead>
+                                <tr><th>User</th><th>Role</th><th>Status</th><th>Storage</th><th>Last Active</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="db-t-user"><img src="assets/images/unsplash-1494790108377-be9c29b29330-80w.webp" alt=""><div><strong>Amara Lewis</strong><span>admin@stackly.io</span></div></div></td>
+                                    <td><span class="db-badge gold"><i class="fas fa-crown"></i> Admin</span></td>
+                                    <td><span class="db-dot online"></span> Online</td>
+                                    <td><div class="db-progress"><i style="width:72%"></i></div></td>
+                                    <td>Now</td>
+                                    <td><button class="db-mini-btn" title="Edit"><i class="fas fa-pen"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="db-t-user"><img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-80w.webp" alt=""><div><strong>Derek Kim</strong><span>derek@stackly.io</span></div></div></td>
+                                    <td><span class="db-badge blue"><i class="fas fa-user-tie"></i> Editor</span></td>
+                                    <td><span class="db-dot online"></span> Online</td>
+                                    <td><div class="db-progress"><i style="width:48%"></i></div></td>
+                                    <td>5 min ago</td>
+                                    <td><button class="db-mini-btn" title="Edit"><i class="fas fa-pen"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="db-t-user"><img src="assets/images/unsplash-1500648767791-00dcc994a43e-80w.webp" alt=""><div><strong>Maya Chen</strong><span>maya@stackly.io</span></div></div></td>
+                                    <td><span class="db-badge blue"><i class="fas fa-user-tie"></i> Editor</span></td>
+                                    <td><span class="db-dot away"></span> Away</td>
+                                    <td><div class="db-progress"><i style="width:36%"></i></div></td>
+                                    <td>22 min ago</td>
+                                    <td><button class="db-mini-btn" title="Edit"><i class="fas fa-pen"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="db-t-user"><img src="assets/images/unsplash-1534528741775-53994a69daeb-120w.webp" alt=""><div><strong>Leo Vega</strong><span>leo@stackly.io</span></div></div></td>
+                                    <td><span class="db-badge gray"><i class="fas fa-eye"></i> Viewer</span></td>
+                                    <td><span class="db-dot offline"></span> Offline</td>
+                                    <td><div class="db-progress"><i style="width:20%"></i></div></td>
+                                    <td>2 hrs ago</td>
+                                    <td><button class="db-mini-btn" title="Edit"><i class="fas fa-pen"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-card-head">
+                        <h4><i class="fas fa-user-plus"></i> Invite a new user</h4>
+                    </div>
+                    <div class="db-form-grid">
+                        <div class="db-field"><label>Full name</label><input type="text" class="db-input" placeholder="Jane Smith"></div>
+                        <div class="db-field"><label>Email address</label><input type="email" class="db-input" placeholder="jane@stackly.io"></div>
+                        <div class="db-field"><label>Role</label>
+                            <select class="db-select"><option>Editor</option><option>Viewer</option><option>Admin</option><option>Guest</option></select>
+                        </div>
+                        <div class="db-field"><label>Department</label>
+                            <select class="db-select"><option>Marketing</option><option>Design</option><option>Product</option><option>Sales</option></select>
+                        </div>
+                    </div>
+                    <div class="db-mt"><button class="db-btn-gold"><i class="fas fa-paper-plane"></i> Send Invite</button></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• ASSETS â•â•â• -->
+            <section class="db-section" id="sec-assets">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Asset Management</h3>
+                        <p>Review and organize every file stored in your DAM.</p>
+                    </div>
+                    <div class="db-head-actions">
+                        <button class="db-btn-outline db-btn-sm"><i class="fas fa-upload"></i> Upload</button>
+                        <button class="db-btn-gold db-btn-sm"><i class="fas fa-plus"></i> New Folder</button>
+                    </div>
+                </div>
+
+                <div class="db-kpi-row">
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic gold"><i class="fas fa-database"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">All assets</div><div class="db-kpi-num count" data-count="12480">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic green"><i class="fas fa-image"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Images</div><div class="db-kpi-num count" data-count="5904">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic blue"><i class="fas fa-file-pdf"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Documents</div><div class="db-kpi-num count" data-count="3218">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic purple"><i class="fas fa-video"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Video &amp; Audio</div><div class="db-kpi-num count" data-count="2602">0</div></div>
+                    </div>
+                </div>
+
+                <div class="db-filter-bar">
+                    <select class="db-select"><option>All types</option><option>Images</option><option>Documents</option><option>Video</option><option>Audio</option></select>
+                    <select class="db-select"><option>All categories</option><option>Marketing</option><option>Product</option><option>Brand</option></select>
+                    <div class="db-input" style="flex:2; width:auto;"><i class="fas fa-search" style="margin-right:8px; opacity:.5;"></i>Search assetsâ€¦</div>
+                </div>
+
+                <div class="db-asset-grid">
+                    <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-image"></i></div><div class="db-card-meta"><strong>Logo_Final_2026.png</strong><span>PNG Â· 2.4 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p2"><i class="fas fa-file-pdf"></i></div><div class="db-card-meta"><strong>Brand_Guide.pdf</strong><span>PDF Â· 6.8 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p3"><i class="fas fa-video"></i></div><div class="db-card-meta"><strong>Intro_Animation.mp4</strong><span>MP4 Â· 45 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p4"><i class="fas fa-audio"></i></div><div class="db-card-meta"><strong>Jingle_Master.wav</strong><span>WAV Â· 18 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p5"><i class="fas fa-file-archive"></i></div><div class="db-card-meta"><strong>Launch_Bundle.zip</strong><span>ZIP Â· 96 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-image"></i></div><div class="db-card-meta"><strong>Product_Hero.png</strong><span>PNG Â· 8.1 MB</span></div></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• FOLDERS â•â•â• -->
+            <section class="db-section" id="sec-folders">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Folders &amp; Categories</h3>
+                        <p>Structure your library into organized collections.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm"><i class="fas fa-plus"></i> New Folder</button></div>
+                </div>
+
+                <div class="db-kpi-row">
+                    <div class="db-kpi"><div class="db-kpi-ic gold"><i class="fas fa-folder"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Folders</div><div class="db-kpi-num count" data-count="86">0</div></div></div>
+                    <div class="db-kpi"><div class="db-kpi-ic blue"><i class="fas fa-tag"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Categories</div><div class="db-kpi-num count" data-count="24">0</div></div></div>
+                    <div class="db-kpi"><div class="db-kpi-ic green"><i class="fas fa-star"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Collections</div><div class="db-kpi-num count" data-count="41">0</div></div></div>
+                    <div class="db-kpi"><div class="db-kpi-ic purple"><i class="fas fa-object-group"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Smart Filters</div><div class="db-kpi-num count" data-count="18">0</div></div></div>
+                </div>
+
+                <div class="db-folder-grid">
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Marketing</strong><span>1,240 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Product</strong><span>860 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Brand Assets</strong><span>512 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Web &amp; App</strong><span>1,070 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Events</strong><span>620 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Campaigns</strong><span>934 assets</span></div></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• PERMISSIONS â•â•â• -->
+            <section class="db-section" id="sec-permissions">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Permissions &amp; Access Control</h3>
+                        <p>Define what each role can see, edit, and manage.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm"><i class="fas fa-save"></i> Save Changes</button></div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-table-wrap">
+                        <table class="db-table db-perm-table">
+                            <thead>
+                                <tr><th>Permission</th><th>Admin</th><th>Editor</th><th>Viewer</th><th>Guest</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>View assets</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td></tr>
+                                <tr><td>Upload assets</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>Edit assets / metadata</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>Delete assets</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>Manage folders</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>Approve / reject content</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>Manage users &amp; roles</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>View analytics &amp; reports</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>System settings</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-no"><i class="fas fa-times"></i></td></tr>
+                                <tr><td>External sharing</td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-yes"><i class="fas fa-check"></i></td><td class="db-no"><i class="fas fa-times"></i></td><td class="db-yes"><i class="fas fa-check"></i></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• ANALYTICS â•â•â• -->
+            <section class="db-section" id="sec-analytics">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Analytics &amp; Reports</h3>
+                        <p>Track usage, engagement, and storage across your organization.</p>
+                    </div>
+                    <div class="db-head-actions">
+                        <select class="db-select" style="width:auto;"><option>Last 30 days</option><option>Last 90 days</option><option>This year</option></select>
+                        <button class="db-btn-outline db-btn-sm"><i class="fas fa-download"></i> Export</button>
+                    </div>
+                </div>
+
+                <div class="db-kpi-row">
+                    <div class="db-kpi"><div class="db-kpi-ic gold"><i class="fas fa-eye"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Total Views</div><div class="db-kpi-num count" data-count="84200">0</div><div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 14.2%</div></div></div>
+                    <div class="db-kpi"><div class="db-kpi-ic blue"><i class="fas fa-download"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Downloads</div><div class="db-kpi-num count" data-count="12480">0</div><div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 9.1%</div></div></div>
+                    <div class="db-kpi"><div class="db-kpi-ic green"><i class="fas fa-share-alt"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Shares</div><div class="db-kpi-num count" data-count="3420">0</div><div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 6.5%</div></div></div>
+                    <div class="db-kpi"><div class="db-kpi-ic purple"><i class="fas fa-user-check"></i></div><div class="db-kpi-info"><div class="db-kpi-label">Active Users</div><div class="db-kpi-num count" data-count="284">0</div><div class="db-kpi-delta down"><i class="fas fa-arrow-down"></i> 2.1%</div></div></div>
+                </div>
+
+                <div class="db-chart-full">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-chart-line"></i> Asset Growth</h4><span class="db-badge green"><i class="fas fa-arrow-up"></i> +18.3% YoY</span></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="adminAssetGrowth"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="db-chart-grid">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-hdd"></i> Storage Usage</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="adminStorage"></canvas></div>
+                        <div class="db-chart-stats">
+                            <div class="db-chart-stat"><span>Used</span><strong>386 GB</strong></div>
+                            <div class="db-chart-stat"><span>Free</span><strong>614 GB</strong></div>
+                            <div class="db-chart-stat"><span>Total</span><strong>1 TB</strong></div>
+                        </div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-tags"></i> Asset Categories</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap tall" id="adminCategories"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="db-chart-grid">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-exchange-alt"></i> Uploads vs Downloads</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="adminUploadDownload"></canvas></div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-calendar-week"></i> Monthly Activity</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="adminMonthly"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="db-chart-grid">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-user-clock"></i> Weekly User Activity</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="adminUserActivity"></canvas></div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-trophy"></i> Top Contributors</h4></div>
+                        <div class="db-row-list">
+                            <div class="db-row">
+                                <img src="assets/images/unsplash-1494790108377-be9c29b29330-80w.webp" alt="Amara" class="db-side-avatar" style="width:38px;height:38px;">
+                                <div class="db-row-txt"><strong>Amara Lewis</strong><span>1,210 uploads</span></div>
+                                <div class="db-row-side"><span class="db-badge gold">#1</span></div>
+                            </div>
+                            <div class="db-row">
+                                <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-80w.webp" alt="Derek" class="db-side-avatar" style="width:38px;height:38px;">
+                                <div class="db-row-txt"><strong>Derek Kim</strong><span>984 uploads</span></div>
+                                <div class="db-row-side"><span class="db-badge gray">#2</span></div>
+                            </div>
+                            <div class="db-row">
+                                <img src="assets/images/unsplash-1500648767791-00dcc994a43e-80w.webp" alt="Maya" class="db-side-avatar" style="width:38px;height:38px;">
+                                <div class="db-row-txt"><strong>Maya Chen</strong><span>821 uploads</span></div>
+                                <div class="db-row-side"><span class="db-badge gray">#3</span></div>
+                            </div>
+                            <div class="db-row">
+                                <img src="assets/images/unsplash-1534528741775-53994a69daeb-120w.webp" alt="Leo" class="db-side-avatar" style="width:38px;height:38px;">
+                                <div class="db-row-txt"><strong>Leo Vega</strong><span>612 uploads</span></div>
+                                <div class="db-row-side"><span class="db-badge gray">#4</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• LOGS â•â•â• -->
+            <section class="db-section" id="sec-logs">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Activity Logs</h3>
+                        <p>A full audit trail of actions across your workspace.</p>
+                    </div>
+                    <div class="db-head-actions">
+                        <select class="db-select" style="width:auto;"><option>All events</option><option>Uploads</option><option>Shares</option><option>Edits</option><option>Users</option></select>
+                        <button class="db-btn-outline db-btn-sm"><i class="fas fa-download"></i> Export CSV</button>
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-timeline">
+                        <div class="db-tl-item"><div class="db-tl-ic up"><i class="fas fa-upload"></i></div><div class="db-tl-body"><strong>Amara uploaded <span class="hl">Brand_Guidelines_v3.pdf</span></strong><span>to Marketing Â· 2 min ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic sh"><i class="fas fa-share-alt"></i></div><div class="db-tl-body"><strong>Derek shared <span class="hl">Product_Hero_Retina.png</span></strong><span>with 6 external guests Â· 18 min ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic us"><i class="fas fa-user-plus"></i></div><div class="db-tl-body"><strong>Maya invited <span class="hl">Leo Vega</span></strong><span>as a Viewer Â· 1 hr ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic ed"><i class="fas fa-edit"></i></div><div class="db-tl-body"><strong>Leo updated metadata on <span class="hl">Q3_Report_draft.pdf</span></strong><span>Â· 3 hrs ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic dl"><i class="fas fa-download"></i></div><div class="db-tl-body"><strong>Derek downloaded <span class="hl">Launch_Teaser_Final.mp4</span></strong><span>Â· 5 hrs ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic fo"><i class="fas fa-folder-plus"></i></div><div class="db-tl-body"><strong>Amara created folder <span class="hl">Events 2026</span></strong><span>Â· Yesterday</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic del"><i class="fas fa-trash-alt"></i></div><div class="db-tl-body"><strong>Maya deleted <span class="hl">Old_draft_v1.png</span></strong><span>Â· Yesterday</span></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• SETTINGS â•â•â• -->
+            <section class="db-section" id="sec-settings">
+                <div class="db-section-head">
+                    <div>
+                        <h3>System Settings</h3>
+                        <p>Configure workspace details, security, and preferences.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm"><i class="fas fa-save"></i> Save Changes</button></div>
+                </div>
+
+                <div class="db-grid-3">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-building"></i> General</h4></div>
+                        <div class="db-form-grid" style="grid-template-columns:1fr;">
+                            <div class="db-field"><label>Workspace name</label><input type="text" class="db-input" value="Stackly DAM"></div>
+                            <div class="db-field"><label>Default language</label><select class="db-select"><option>English</option><option>Spanish</option><option>German</option></select></div>
+                            <div class="db-field"><label>Time zone</label><select class="db-select"><option>(UTC-08:00) Pacific Time</option><option>(UTC+00:00) London</option></select></div>
+                        </div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-shield-alt"></i> Security</h4></div>
+                        <div class="db-switch-row"><span>Two-factor authentication<p>Require 2FA for admin accounts</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                        <div class="db-switch-row"><span>Password expiry<p>Force reset every 90 days</p></span><label class="db-switch"><input type="checkbox"><i></i></label></div>
+                        <div class="db-switch-row"><span>SSO / SAML<p>Single sign-on for the org</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                        <div class="db-switch-row"><span>IP allowlist<p>Restrict access to office IPs</p></span><label class="db-switch"><input type="checkbox"><i></i></label></div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-bell"></i> Notifications</h4></div>
+                        <div class="db-switch-row"><span>Upload alerts<p>Notify on large uploads</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                        <div class="db-switch-row"><span>Security alerts<p>Login and permission changes</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                        <div class="db-switch-row"><span>Weekly digest<p>Summary of workspace activity</p></span><label class="db-switch"><input type="checkbox"><i></i></label></div>
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-card-head"><h4><i class="fas fa-hdd"></i> Storage</h4></div>
+                    <div class="db-storage">
+                        <div class="db-storage-bar"><div class="db-storage-fill" style="width:38%">38%</div></div>
+                        <div class="db-storage-meta"><span><strong>386 GB</strong> used of 1 TB</span><span>614 GB free</span></div>
+                    </div>
+                    <div class="db-mt"><button class="db-btn-outline db-btn-sm"><i class="fas fa-arrow-up"></i> Upgrade plan</button></div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+</div>
+
+<script>
+(function(){
+    var titles = {
+        overview: 'Dashboard Overview',
+        users: 'User Management',
+        assets: 'Asset Management',
+        folders: 'Folders & Categories',
+        permissions: 'Permissions & Access',
+        analytics: 'Analytics & Reports',
+        logs: 'Activity Logs',
+        settings: 'System Settings'
+    };
+
+    var navItems = document.querySelectorAll('.db-nav-item');
+    var sections = document.querySelectorAll('.db-section');
+    var topTitle = document.getElementById('dbTopTitle');
+    var sidebar = document.getElementById('dbSidebar');
+    var overlay = document.getElementById('dbOverlay');
+    var menuBtn = document.getElementById('dbMenuBtn');
+
+    function openSidebar(){ sidebar.classList.add('open'); overlay.classList.add('show'); }
+    function closeSidebar(){ sidebar.classList.remove('open'); overlay.classList.remove('show'); }
+
+    function animateBars(){
+        document.querySelectorAll('.db-section.active .db-bar-fill, .db-section.active .db-storage-fill').forEach(function(f){
+            var w = f.getAttribute('style') ? f.getAttribute('style').match(/width:([0-9.]+)%/) : null;
+            if(w){ f.style.width = '0%'; setTimeout(function(){ f.style.width = w[1] + '%'; }, 60); }
+        });
+    }
+
+    function runCounters(){
+        var c = document.querySelector('.db-section.active .count');
+        if(!c) return;
+        var target = parseInt(c.getAttribute('data-count'), 10);
+        var start = 0, dur = 900, startTime = null;
+        function step(ts){
+            if(!startTime) startTime = ts;
+            var p = Math.min((ts - startTime) / dur, 1);
+            c.textContent = Math.floor(p * target).toLocaleString();
+            if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    var chartsDone = false;
+    var charts = {};
+
+    var CHART = {
+        gold: '#C9A227', gold2: '#A8861E', goldLight: '#E0BF5C',
+        blue: '#60a5fa', green: '#4ade80', purple: '#c084fc', red: '#f87171',
+        grid: 'rgba(255,255,255,0.06)', gridSoft: 'rgba(255,255,255,0.04)',
+        tick: 'rgba(238,240,246,0.5)'
+    };
+
+    function fontFam(f){ return { family: 'Poppins', size: f || 11 }; }
+
+    function gradFill(ctx, top, mid, bottom){
+        var g = ctx.createLinearGradient(0, 0, 0, 260);
+        g.addColorStop(0, top); g.addColorStop(0.6, mid); g.addColorStop(1, bottom);
+        return g;
+    }
+
+    function tooltipCb(context){
+        var c = context.chart.tooltip;
+        var dataIndex = context.dataIndex, dataset = context.dataset;
+        var val = dataset.data[dataIndex];
+        return ' ' + dataset.label + ': ' + Number(val).toLocaleString();
+    }
+
+    function doughnutCb(context){
+        var val = context.parsed;
+        var total = context.dataset.data.reduce(function(a,b){ return a+b; }, 0);
+        var pct = total ? Math.round(val/total*100) : 0;
+        return ' ' + context.label + ': ' + Number(val).toLocaleString() + ' (' + pct + '%)';
+    }
+
+    function baseOpts(legend){
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: { duration: 900, easing: 'easeOutQuart' },
+            plugins: {
+                legend: legend === false ? { display: false } : {
+                    labels: { color: CHART.tick, font: fontFam(11), boxWidth: 10, boxHeight: 10, padding: 14, usePointStyle: true, pointStyle: 'circle' }
+                },
+                tooltip: {
+                    backgroundColor: '#151208', titleColor: CHART.goldLight, bodyColor: 'rgba(238,240,246,0.9)',
+                    borderColor: 'rgba(201,162,39,0.4)', borderWidth: 1, padding: 12, cornerRadius: 8,
+                    displayColors: true, boxPadding: 4, titleFont: fontFam(12), bodyFont: fontFam(11),
+                    callbacks: {}
+                }
+            }
+        };
+    }
+
+    function cartesian(legend, beginAtZero){
+        var o = baseOpts(legend);
+        o.scales = {
+            x: { grid: { color: CHART.gridSoft, drawTicks:false }, ticks: { color: CHART.tick, font: fontFam(10), maxRotation: 0 } },
+            y: { beginAtZero: !!beginAtZero, grid: { color: CHART.grid }, ticks: { color: CHART.tick, font: fontFam(10) } }
+        };
+        return o;
+    }
+
+    function initCharts(){
+        if(typeof Chart === 'undefined' || chartsDone) return;
+        chartsDone = true;
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var ctx;
+
+        /* Asset Growth — area line */
+        ctx = document.getElementById('adminAssetGrowth');
+        if(ctx){
+            var ag = ctx.getContext('2d');
+            charts.assetGrowth = new Chart(ag, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Assets', data: [3100,3400,3600,3900,4300,4700,5100,5600,6100,6800,7600,8400],
+                        borderColor: CHART.gold, backgroundColor: gradFill(ag,'rgba(201,162,39,0.5)','rgba(201,162,39,0.12)','rgba(201,162,39,0.02)'),
+                        fill: true, tension: 0.4, borderWidth: 2.5, pointBackgroundColor: CHART.goldLight,
+                        pointBorderColor: '#151208', pointBorderWidth: 1.5, pointRadius: 3, pointHoverRadius: 5
+                    }]
+                },
+                options: (function(){ var o=cartesian(false,true); o.plugins.tooltip.callbacks.label=tooltipCb; return o; })()
+            });
+        }
+
+        /* Storage — doughnut */
+        ctx = document.getElementById('adminStorage');
+        if(ctx){
+            charts.storage = new Chart(ctx.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Used', 'Free'],
+                    datasets: [{
+                        data: [386, 614],
+                        backgroundColor: ['#C9A227', 'rgba(255,255,255,0.08)'],
+                        borderColor: '#151208', borderWidth: 3, hoverOffset: 8
+                    }]
+                },
+                options: (function(){ var o=baseOpts(true); o.cutout='62%'; o.plugins.tooltip.callbacks.label=doughnutCb; return o; })()
+            });
+        }
+
+        /* Asset Categories — doughnut */
+        ctx = document.getElementById('adminCategories');
+        if(ctx){
+            charts.categories = new Chart(ctx.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Images','Documents','Video','Audio','Other'],
+                    datasets: [{
+                        data: [5904, 3218, 1740, 860, 758],
+                        backgroundColor: [CHART.gold, CHART.blue, CHART.purple, CHART.green, 'rgba(255,255,255,0.22)'],
+                        borderColor: '#0e0f0f', borderWidth: 3, hoverOffset: 8
+                    }]
+                },
+                options: (function(){ var o=baseOpts(true); o.cutout='55%'; o.plugins.tooltip.callbacks.label=doughnutCb; return o; })()
+            });
+        }
+
+        /* Uploads vs Downloads — bar */
+        ctx = document.getElementById('adminUploadDownload');
+        if(ctx){
+            charts.uploadDownload = new Chart(ctx.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: months,
+                    datasets: [
+                        { label: 'Uploads', data: [820,1040,910,1310,1150,1610,1400,1780,1620,1980,2100,2360], backgroundColor: CHART.gold, borderRadius: 5, hoverBackgroundColor: CHART.goldLight },
+                        { label: 'Downloads', data: [410,520,455,655,575,805,700,890,810,990,1050,1180], backgroundColor: 'rgba(96,165,250,0.75)', borderRadius: 5, hoverBackgroundColor: CHART.blue }
+                    ]
+                },
+                options: (function(){ var o=cartesian(true,true); o.plugins.tooltip.callbacks.label=tooltipCb; o.scales.x.stacked=false; o.scales.y.stacked=false; return o; })()
+            });
+        }
+
+        /* Monthly Activity — line */
+        ctx = document.getElementById('adminMonthly');
+        if(ctx){
+            var mctx = ctx.getContext('2d');
+            charts.monthly = new Chart(mctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Total activity', data: [1230,1560,1365,1965,1725,2415,2100,2670,2430,2970,3150,3540],
+                        borderColor: CHART.green, backgroundColor: gradFill(mctx,'rgba(74,222,128,0.4)','rgba(74,222,128,0.1)','rgba(74,222,128,0.02)'),
+                        fill: true, tension: 0.35, borderWidth: 2.5, pointBackgroundColor: CHART.green, pointRadius: 3, pointHoverRadius: 5
+                    }]
+                },
+                options: (function(){ var o=cartesian(false,true); o.plugins.tooltip.callbacks.label=tooltipCb; return o; })()
+            });
+        }
+
+        /* Weekly User Activity — bar */
+        ctx = document.getElementById('adminUserActivity');
+        if(ctx){
+            var uac = ctx.getContext('2d');
+            charts.userActivity = new Chart(uac, {
+                type: 'bar',
+                data: {
+                    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+                    datasets: [{
+                        label: 'Active users', data: [240,286,302,276,218,132,98],
+                        backgroundColor: gradFill(uac,'rgba(224,191,92,0.9)','rgba(201,162,39,0.6)','rgba(168,134,30,0.5)'),
+                        borderRadius: 6
+                    }]
+                },
+                options: (function(){ var o=cartesian(false,true); o.plugins.legend.display=false; o.plugins.tooltip.callbacks.label=tooltipCb; return o; })()
+            });
+        }
+    }
+
+    var counterDone = {};
+    function resizeCharts(){
+        if(typeof Chart === 'undefined') return;
+        Object.keys(charts).forEach(function(k){ try{ charts[k].resize(); }catch(e){} });
+    }
+    function switchTab(tab){
+        navItems.forEach(function(n){ n.classList.remove('active'); if(n.getAttribute('data-tab')===tab) n.classList.add('active'); });
+        sections.forEach(function(s){ s.classList.remove('active'); if(s.id==='sec-'+tab) s.classList.add('active'); });
+        if(topTitle && titles[tab]) topTitle.textContent = titles[tab];
+        closeSidebar();
+        animateBars();
+        if(!counterDone[tab]){ counterDone[tab] = true; setTimeout(runCounters, 60); }
+        if(tab === 'analytics'){ initCharts(); setTimeout(resizeCharts, 150); }
+    }
+
+    navItems.forEach(function(n){
+        n.addEventListener('click', function(){ switchTab(n.getAttribute('data-tab')); });
+    });
+
+    menuBtn.addEventListener('click', function(){ sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+    overlay.addEventListener('click', closeSidebar);
+
+    window.addEventListener('resize', function(){ if(window.innerWidth > 1024) closeSidebar(); });
+
+    switchTab('overview');
+
+    window.logout = function(){ window.location.href = 'index.html'; };
+})();
+</script>
+</body>
+</html>

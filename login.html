@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<div class="auth-page">
+    <div class="auth-shell">
+
+        <div class="auth-head">
+            <a href="index.html" class="auth-logo">
+                <img src="assets/images/logo.webp" alt="Stackly">
+            </a>
+            <h1>Welcome <span>Back</span></h1>
+            <p>Sign in to your Stackly workspace to manage your digital assets.</p>
+        </div>
+
+        <div class="auth-card">
+            <form id="loginForm" novalidate>
+
+                <!-- Role selection -->
+                <label class="auth-label" id="roleFieldLabel">Sign in as</label>
+                <div class="auth-role" id="roleSelect">
+                    <div class="auth-role-card" data-role="admin">
+                        <span class="role-check"><i class="fas fa-check"></i></span>
+                        <div class="role-ic admin"><i class="fas fa-user-shield"></i></div>
+                        <strong>Admin</strong>
+                        <span>Full access &amp; controls</span>
+                    </div>
+                    <div class="auth-role-card" data-role="user">
+                        <span class="role-check"><i class="fas fa-check"></i></span>
+                        <div class="role-ic user"><i class="fas fa-user"></i></div>
+                        <strong>User</strong>
+                        <span>Manage your assets</span>
+                    </div>
+                </div>
+                <div class="auth-field error hidden" id="roleError">
+                    <div class="auth-error"><i class="fas fa-exclamation-circle"></i> Please select a role.</div>
+                </div>
+
+                <!-- Email -->
+                <div class="auth-field" id="field-email">
+                    <label for="email">Email address</label>
+                    <div class="auth-input-wrap">
+                        <i class="fas fa-envelope auth-input-lead"></i>
+                        <input type="email" id="email" class="auth-input" placeholder="you@company.com" autocomplete="email">
+                    </div>
+                    <div class="auth-error hidden" id="emailError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                </div>
+
+                <!-- Password -->
+                <div class="auth-field" id="field-password">
+                    <label>Password <a href="#" id="forgotLink">Forgot password?</a></label>
+                    <div class="auth-input-wrap">
+                        <i class="fas fa-lock auth-input-lead"></i>
+                        <input type="password" id="password" class="auth-input" placeholder="Enter your password" autocomplete="current-password">
+                        <button type="button" class="auth-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="auth-error hidden" id="passwordError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                </div>
+
+                <!-- Options -->
+                <div class="auth-row">
+                    <label class="auth-check">
+                        <input type="checkbox" id="remember">
+                        <span class="auth-check-box"><i class="fas fa-check"></i></span>
+                        Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="auth-submit">Sign In <i class="fas fa-arrow-right"></i></button>
+
+                <div class="auth-alert" id="authAlert"><i class="fas fa-exclamation-triangle"></i> <span id="authAlertMsg"></span></div>
+            </form>
+
+            <div class="auth-switch">
+                Don't have an account? <a href="signup.html">Create one</a>
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="auth-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+(function(){
+    var role = null;
+    var roleCards = document.querySelectorAll('.auth-role-card');
+    var roleError = document.getElementById('roleError');
+
+    roleCards.forEach(function(card){
+        card.addEventListener('click', function(){
+            roleCards.forEach(function(c){ c.classList.remove('sel'); });
+            card.classList.add('sel');
+            role = card.getAttribute('data-role');
+            roleError.classList.add('hidden');
+        });
+    });
+
+    /* Show / Hide password */
+    document.querySelectorAll('[data-toggle="password"]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+            var input = this.parentNode.querySelector('.auth-input');
+            var ic = this.querySelector('i');
+            if(input.type === 'password'){
+                input.type = 'text';
+                ic.classList.remove('fa-eye'); ic.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                ic.classList.remove('fa-eye-slash'); ic.classList.add('fa-eye');
+            }
+        });
+    });
+
+    function setError(id, msg){
+        var field = document.getElementById('field-' + id);
+        var err = document.getElementById(id + 'Error');
+        var input = document.getElementById(id);
+        if(msg){
+            field.classList.add('error');
+            input.classList.add('input-error');
+            input.classList.remove('input-valid');
+            err.querySelector('span').textContent = msg;
+        } else {
+            field.classList.remove('error');
+            input.classList.remove('input-error');
+            input.classList.add('input-valid');
+        }
+    }
+
+    function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+    function validPassword(v){ return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(v); }
+
+    function showAlert(msg){
+        var a = document.getElementById('authAlert');
+        document.getElementById('authAlertMsg').textContent = msg;
+        a.classList.add('show');
+        setTimeout(function(){ a.classList.remove('show'); }, 4000);
+    }
+
+    var form = document.getElementById('loginForm');
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        var email = document.getElementById('email').value.trim();
+        var password = document.getElementById('password').value;
+        var remember = document.getElementById('remember').checked;
+        var ok = true;
+
+        if(!role){
+            roleError.classList.remove('hidden');
+            ok = false;
+        } else {
+            roleError.classList.add('hidden');
+        }
+
+        if(!email){ setError('email','Email address is required.'); ok = false; }
+        else if(!validEmail(email)){ setError('email','Please enter a valid email address.'); ok = false; }
+        else setError('email', null);
+
+        if(!password){ setError('password','Password is required.'); ok = false; }
+        else setError('password', null);
+
+        if(!ok) return;
+
+        /* Persist role for demo purposes */
+        try { localStorage.setItem('stackly_role', role); } catch(err){}
+        if(remember){
+            try { localStorage.setItem('stackly_remember', email); } catch(err){}
+        }
+
+        /* Redirect based on role */
+        var dest = role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
+        showAlert('Signing in as ' + (role === 'admin' ? 'Admin' : 'User') + '…');
+        setTimeout(function(){ window.location.href = dest; }, 700);
+    });
+
+    /* Restore remembered email */
+    try {
+        var saved = localStorage.getItem('stackly_remember');
+        if(saved){
+            document.getElementById('email').value = saved;
+            document.getElementById('remember').checked = true;
+        }
+    } catch(err){}
+
+    document.getElementById('forgotLink').addEventListener('click', function(e){
+        e.preventDefault();
+        showAlert('Password reset instructions have been sent to your email.');
+    });
+
+    /* Clear error on typing */
+    ['email','password'].forEach(function(id){
+        document.getElementById(id).addEventListener('input', function(){
+            setError(id, null);
+        });
+    });
+})();
+</script>
+</body>
+</html>

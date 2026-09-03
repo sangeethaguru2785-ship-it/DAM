@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard â€” Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="db-page">
+
+    <!-- â•â•â•â•â•â•â•â•â•â• SIDEBAR â•â•â•â•â•â•â•â•â•â• -->
+    <aside class="db-sidebar" id="dbSidebar">
+        <div class="db-side-top">
+            <img src="assets/images/logo.webp" alt="Stackly" class="db-side-logo">
+            <div class="db-side-title">Stackly<small>My Workspace</small></div>
+        </div>
+
+        <nav class="db-side-nav">
+            <div class="db-nav-label">Library</div>
+            <button class="db-nav-item active" data-tab="overview"><i class="fas fa-th-large"></i> Overview</button>
+            <button class="db-nav-item" data-tab="my-assets"><i class="fas fa-photo-video"></i> My Assets</button>
+            <button class="db-nav-item" data-tab="upload"><i class="fas fa-cloud-upload-alt"></i> Upload Assets</button>
+
+            <div class="db-nav-label">Browse</div>
+            <button class="db-nav-item" data-tab="recent"><i class="fas fa-clock"></i> Recent Files</button>
+            <button class="db-nav-item" data-tab="favorites"><i class="fas fa-star"></i> Favorites</button>
+            <button class="db-nav-item" data-tab="shared"><i class="fas fa-share-alt"></i> Shared Files</button>
+            <button class="db-nav-item" data-tab="folders"><i class="fas fa-folder"></i> Folders</button>
+            <button class="db-nav-item" data-tab="search"><i class="fas fa-search"></i> Search</button>
+
+            <div class="db-nav-label">Activity</div>
+            <button class="db-nav-item" data-tab="preview"><i class="fas fa-eye"></i> Asset Preview</button>
+            <button class="db-nav-item" data-tab="downloads"><i class="fas fa-download"></i> Downloads <span class="nav-badge">24</span></button>
+            <button class="db-nav-item" data-tab="notifications"><i class="fas fa-bell"></i> Notifications</button>
+            <button class="db-nav-item" data-tab="profile"><i class="fas fa-user"></i> Profile</button>
+        </nav>
+
+        <div class="db-side-foot">
+            <div class="db-side-user">
+                <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-80w.webp" alt="Derek" class="db-side-avatar">
+                <div class="db-side-user-info">
+                    <strong>Derek Kim</strong>
+                    <span>derek@stackly.io</span>
+                </div>
+            </div>
+            <button class="db-logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </aside>
+
+    <div class="db-overlay" id="dbOverlay"></div>
+
+    <!-- â•â•â•â•â•â•â•â•â•â• MAIN â•â•â•â•â•â•â•â•â•â• -->
+    <main class="db-main">
+        <header class="db-topbar">
+            <div class="db-top-left">
+                <button class="db-menu-btn" id="dbMenuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+                <div class="db-top-title">
+                    <h2 id="dbTopTitle">Dashboard Overview</h2>
+                    <p>Welcome back, Derek</p>
+                </div>
+            </div>
+            <div class="db-top-right">
+                <div class="db-top-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search my libraryâ€¦">
+                </div>
+                <div class="db-top-icons">
+                    <button class="db-top-icon" aria-label="Notifications"><i class="fas fa-bell"></i><span class="db-notif-dot"></span></button>
+                    <button class="db-top-icon n-hide" aria-label="Messages"><i class="fas fa-envelope"></i></button>
+                </div>
+                <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-80w.webp" alt="Derek" class="db-top-avatar">
+            </div>
+        </header>
+
+        <div class="db-content">
+
+            <!-- â•â•â• OVERVIEW â•â•â• -->
+            <section class="db-section active" id="sec-overview">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Overview</h3>
+                        <p>Here's what's happening in your personal asset library.</p>
+                    </div>
+                    <div class="db-head-actions">
+                        <button class="db-btn-outline db-btn-sm" onclick="go('recent')"><i class="fas fa-clock"></i> Recent</button>
+                        <button class="db-btn-gold db-btn-sm" onclick="go('upload')"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
+                    </div>
+                </div>
+
+                <div class="db-kpi-row">
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic gold"><i class="fas fa-database"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">My Assets</div><div class="db-kpi-num count" data-count="486">0</div><div class="db-kpi-delta up"><i class="fas fa-arrow-up"></i> 4 this week</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic blue"><i class="fas fa-star"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Favorites</div><div class="db-kpi-num count" data-count="32">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic green"><i class="fas fa-share-alt"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">Shared by me</div><div class="db-kpi-num count" data-count="58">0</div></div>
+                    </div>
+                    <div class="db-kpi">
+                        <div class="db-kpi-ic purple"><i class="fas fa-hdd"></i></div>
+                        <div class="db-kpi-info"><div class="db-kpi-label">My Storage</div><div class="db-kpi-num">42<small> GB</small></div><div class="db-kpi-delta neutral">of 100 GB</div></div>
+                    </div>
+                </div>
+
+                <div class="db-grid-2">
+                    <div class="db-card">
+                        <div class="db-card-head">
+                            <h4><i class="fas fa-clock"></i> Recent Files</h4>
+                            <button class="db-card-link" onclick="go('recent')">View all <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <div class="db-row-list">
+                            <div class="db-row">
+                                <div class="db-thumb p1"><i class="fas fa-file-image"></i></div>
+                                <div class="db-row-txt"><strong>Campaign_Banner_B.webp</strong><span>WEBP Â· 1.2 MB Â· Marketing</span></div>
+                                <div class="db-row-side"><span class="db-row-time">5 min ago</span><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p2"><i class="fas fa-file-pdf"></i></div>
+                                <div class="db-row-txt"><strong>Q3_Report_draft.pdf</strong><span>PDF Â· 4.2 MB Â· Docs</span></div>
+                                <div class="db-row-side"><span class="db-row-time">42 min ago</span><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p3"><i class="fas fa-file-vector"></i></div>
+                                <div class="db-row-txt"><strong>Logo_Marks_Final.ai</strong><span>AI Â· 8.6 MB Â· Brand</span></div>
+                                <div class="db-row-side"><span class="db-row-time">2 hrs ago</span><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p4"><i class="fas fa-file-video"></i></div>
+                                <div class="db-row-txt"><strong>Explainer_Reel_30s.mp4</strong><span>MP4 Â· 64 MB Â· Video</span></div>
+                                <div class="db-row-side"><span class="db-row-time">4 hrs ago</span><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-head">
+                            <h4><i class="fas fa-star"></i> Favorite Assets</h4>
+                            <button class="db-card-link" onclick="go('favorites')">View all <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <div class="db-asset-grid" style="grid-template-columns:repeat(2,1fr);">
+                            <div class="db-asset-card"><div class="db-card-prev p2"><i class="fas fa-image"></i></div><div class="db-card-meta"><strong>Product_Hero.png</strong><span>PNG Â· 8.1 MB</span></div></div>
+                            <div class="db-asset-card"><div class="db-card-prev p5"><i class="fas fa-file-pdf"></i></div><div class="db-card-meta"><strong>Brand_Guide.pdf</strong><span>PDF Â· 6.8 MB</span></div></div>
+                            <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-file-vector"></i></div><div class="db-card-meta"><strong>Logo_Marks.ai</strong><span>AI Â· 8.6 MB</span></div></div>
+                            <div class="db-asset-card"><div class="db-card-prev p3"><i class="fas fa-video"></i></div><div class="db-card-meta"><strong>Launch_Teaser.mp4</strong><span>MP4 Â· 120 MB</span></div></div>
+                        </div>
+                    </div>
+                </div>
+                            <div class="db-chart-full">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-chart-line"></i> Personal Asset Activity</h4><span class="db-badge green"><i class="fas fa-arrow-up"></i> +22% this month</span></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="userAssetActivity"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="db-chart-grid">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-exchange-alt"></i> Uploads vs Downloads</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="userUploadDownload"></canvas></div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-hdd"></i> Storage Usage</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="userStorage"></canvas></div>
+                        <div class="db-chart-stats">
+                            <div class="db-chart-stat"><span>Used</span><strong>42 GB</strong></div>
+                            <div class="db-chart-stat"><span>Free</span><strong>58 GB</strong></div>
+                            <div class="db-chart-stat"><span>Quota</span><strong>100 GB</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="db-chart-grid">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-calendar-week"></i> Recent Activity</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap" id="userRecentActivity"></canvas></div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-tags"></i> Asset Categories</h4></div>
+                        <div class="db-chart"><canvas class="db-chart-wrap tall" id="userCategories"></canvas></div>
+                    </div>
+                </div>
+</section>
+
+            <!-- â•â•â• MY ASSETS â•â•â• -->
+            <section class="db-section" id="sec-my-assets">
+                <div class="db-section-head">
+                    <div>
+                        <h3>My Assets</h3>
+                        <p>Everything you've uploaded or own in this workspace.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm" onclick="go('upload')"><i class="fas fa-cloud-upload-alt"></i> Upload</button></div>
+                </div>
+
+                <div class="db-filter-bar">
+                    <select class="db-select"><option>All types</option><option>Images</option><option>Documents</option><option>Video</option><option>Audio</option></select>
+                    <select class="db-select"><option>Any folder</option><option>Marketing</option><option>Product</option><option>Brand</option></select>
+                </div>
+
+                <div class="db-asset-grid">
+                    <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-image"></i></div><div class="db-card-meta"><strong>Campaign_Banner_A.png</strong><span>PNG Â· 1.2 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p2"><i class="fas fa-file-pdf"></i></div><div class="db-card-meta"><strong>Q3_Report_draft.pdf</strong><span>PDF Â· 4.2 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p3"><i class="fas fa-file-vector"></i></div><div class="db-card-meta"><strong>Logo_Marks_Final.ai</strong><span>AI Â· 8.6 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p4"><i class="fas fa-file-video"></i></div><div class="db-card-meta"><strong>Explainer_Reel_30s.mp4</strong><span>MP4 Â· 64 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p5"><i class="fas fa-file-audio"></i></div><div class="db-card-meta"><strong>Podcast_Intro.wav</strong><span>WAV Â· 24 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-file-archive"></i></div><div class="db-card-meta"><strong>Launch_Bundle.zip</strong><span>ZIP Â· 48 MB</span></div></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• UPLOAD â•â•â• -->
+            <section class="db-section" id="sec-upload">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Upload Assets</h3>
+                        <p>Drag and drop files or browse from your device.</p>
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-upload-zone" id="dbUploadZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Drop files here</h4>
+                        <p>or click to browse Â· up to 5 GB per file</p>
+                        <button class="db-btn-gold db-btn-sm" type="button"><i class="fas fa-folder-open"></i> Browse Files</button>
+                    </div>
+                    <div class="db-field db-mt" style="max-width:420px;margin:18px auto 0;">
+                        <label>Upload to folder</label>
+                        <select class="db-select"><option>My Assets</option><option>Marketing</option><option>Product</option><option>Brand</option></select>
+                    </div>
+                    <div class="db-upload-list" id="dbUploadList"></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• RECENT â•â•â• -->
+            <section class="db-section" id="sec-recent">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Recent Files</h3>
+                        <p>Your most recently accessed and modified files.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-outline db-btn-sm"><i class="fas fa-filter"></i> Filter</button></div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-table-wrap">
+                        <table class="db-table">
+                            <thead><tr><th>File</th><th>Type</th><th>Size</th><th>Modified</th><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="db-t-user"><div class="db-thumb p1"><i class="fas fa-file-image"></i></div><div><strong>Campaign_Banner_B.webp</strong><span>Marketing</span></div></div></td>
+                                    <td><span class="db-badge gold">Image</span></td>
+                                    <td>1.2 MB</td><td>5 min ago</td>
+                                    <td><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="db-t-user"><div class="db-thumb p2"><i class="fas fa-file-pdf"></i></div><div><strong>Q3_Report_draft.pdf</strong><span>Docs</span></div></div></td>
+                                    <td><span class="db-badge blue">Document</span></td>
+                                    <td>4.2 MB</td><td>42 min ago</td>
+                                    <td><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="db-t-user"><div class="db-thumb p3"><i class="fas fa-file-vector"></i></div><div><strong>Logo_Marks_Final.ai</strong><span>Brand</span></div></div></td>
+                                    <td><span class="db-badge purple">Vector</span></td>
+                                    <td>8.6 MB</td><td>2 hrs ago</td>
+                                    <td><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="db-t-user"><div class="db-thumb p4"><i class="fas fa-file-video"></i></div><div><strong>Explainer_Reel_30s.mp4</strong><span>Video</span></div></div></td>
+                                    <td><span class="db-badge green">Video</span></td>
+                                    <td>64 MB</td><td>4 hrs ago</td>
+                                    <td><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• FAVORITES â•â•â• -->
+            <section class="db-section" id="sec-favorites">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Favorites</h3>
+                        <p>Your starred assets for quick access.</p>
+                    </div>
+                </div>
+                <div class="db-asset-grid">
+                    <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-image"></i></div><div class="db-card-meta"><strong>Product_Hero.png</strong><span>PNG Â· 8.1 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p2"><i class="fas fa-file-pdf"></i></div><div class="db-card-meta"><strong>Brand_Guide.pdf</strong><span>PDF Â· 6.8 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p3"><i class="fas fa-file-vector"></i></div><div class="db-card-meta"><strong>Logo_Marks.ai</strong><span>AI Â· 8.6 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p4"><i class="fas fa-video"></i></div><div class="db-card-meta"><strong>Launch_Teaser.mp4</strong><span>MP4 Â· 120 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p5"><i class="fas fa-file-audio"></i></div><div class="db-card-meta"><strong>Jingle_Master.wav</strong><span>WAV Â· 18 MB</span></div></div>
+                    <div class="db-asset-card"><div class="db-card-prev p1"><i class="fas fa-file-archive"></i></div><div class="db-card-meta"><strong>Launch_Bundle.zip</strong><span>ZIP Â· 96 MB</span></div></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• SHARED â•â•â• -->
+            <section class="db-section" id="sec-shared">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Shared Files</h3>
+                        <p>Files shared with you and by you.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm"><i class="fas fa-share-alt"></i> Share a file</button></div>
+                </div>
+
+                <div class="db-grid-2-eq">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-inbox"></i> Shared with me</h4></div>
+                        <div class="db-row-list">
+                            <div class="db-row">
+                                <div class="db-thumb p2"><i class="fas fa-file-image"></i></div>
+                                <div class="db-row-txt"><strong>Splash_Screen_Final.png</strong><span>from Maya Chen Â· 2 days ago</span></div>
+                                <div class="db-row-side"><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p1"><i class="fas fa-file-video"></i></div>
+                                <div class="db-row-txt"><strong>Product_Tour_60s.mp4</strong><span>from Amara Lewis Â· 4 days ago</span></div>
+                                <div class="db-row-side"><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p3"><i class="fas fa-file-pdf"></i></div>
+                                <div class="db-row-txt"><strong>Onboarding_Guide.pdf</strong><span>from Leo Vega Â· 1 week ago</span></div>
+                                <div class="db-row-side"><button class="db-mini-btn" onclick="go('preview')" title="Preview"><i class="fas fa-eye"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-paper-plane"></i> Shared by me</h4></div>
+                        <div class="db-row-list">
+                            <div class="db-row">
+                                <div class="db-thumb p4"><i class="fas fa-file-archive"></i></div>
+                                <div class="db-row-txt"><strong>Campaign_Assets_v2.zip</strong><span>shared with 6 people</span></div>
+                                <div class="db-row-side"><span class="db-badge green">Active</span></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p5"><i class="fas fa-file-pdf"></i></div>
+                                <div class="db-row-txt"><strong>Pitch_Deck_2026.pdf</strong><span>shared with 3 people</span></div>
+                                <div class="db-row-side"><span class="db-badge gray">Expired</span></div>
+                            </div>
+                            <div class="db-row">
+                                <div class="db-thumb p1"><i class="fas fa-file-image"></i></div>
+                                <div class="db-row-txt"><strong>Social_Post_Set.webp</strong><span>shared with 12 people</span></div>
+                                <div class="db-row-side"><span class="db-badge green">Active</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• FOLDERS â•â•â• -->
+            <section class="db-section" id="sec-folders">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Folders &amp; Collections</h3>
+                        <p>Organize your assets into personal collections.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm"><i class="fas fa-folder-plus"></i> New Folder</button></div>
+                </div>
+                <div class="db-folder-grid">
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>My Uploads</strong><span>120 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Campaign Work</strong><span>42 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Personal Brand</strong><span>18 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Video Drafts</strong><span>9 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-star"></i></div><div class="db-folder-info"><strong>Starred Picks</strong><span>15 assets</span></div></div>
+                    <div class="db-folder-card"><div class="db-folder-ic"><i class="fas fa-folder"></i></div><div class="db-folder-info"><strong>Archives 2025</strong><span>240 assets</span></div></div>
+                </div>
+            </section>
+
+            <!-- â•â•â• SEARCH â•â•â• -->
+            <section class="db-section" id="sec-search">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Search &amp; Filters</h3>
+                        <p>Find any asset across your library.</p>
+                    </div>
+                </div>
+
+                <div class="db-filter-bar">
+                    <div class="db-input" style="flex:3;"><i class="fas fa-search" style="margin-right:8px;opacity:.5;"></i>Search by name or tagâ€¦</div>
+                    <select class="db-select" style="flex:1;"><option>All types</option><option>Images</option><option>Documents</option><option>Video</option></select>
+                    <select class="db-select" style="flex:1;"><option>Any folder</option><option>My Uploads</option><option>Campaign Work</option></select>
+                    <button class="db-btn-gold db-btn-sm">Search</button>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-table-wrap">
+                        <table class="db-table">
+                            <thead><tr><th>File</th><th>Folder</th><th>Type</th><th>Size</th></tr></thead>
+                            <tbody>
+                                <tr><td><div class="db-t-user"><div class="db-thumb p1"><i class="fas fa-file-image"></i></div><div><strong>Hero_Image_Site.webp</strong><span>tag: web, hero</span></div></div></td><td>My Uploads</td><td><span class="db-badge gold">Image</span></td><td>2.1 MB</td></tr>
+                                <tr><td><div class="db-t-user"><div class="db-thumb p2"><i class="fas fa-file-pdf"></i></div><div><strong>Brand_Guide.pdf</strong><span>tag: brand, guide</span></div></div></td><td>Campaign Work</td><td><span class="db-badge blue">Document</span></td><td>6.8 MB</td></tr>
+                                <tr><td><div class="db-t-user"><div class="db-thumb p3"><i class="fas fa-file-video"></i></div><div><strong>Product_Demo.mp4</strong><span>tag: demo, video</span></div></div></td><td>Video Drafts</td><td><span class="db-badge green">Video</span></td><td>48 MB</td></tr>
+                                <tr><td><div class="db-t-user"><div class="db-thumb p4"><i class="fas fa-file-vector"></i></div><div><strong>Logo_Marks.ai</strong><span>tag: logo, brand</span></div></div></td><td>Personal Brand</td><td><span class="db-badge purple">Vector</span></td><td>8.6 MB</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• PREVIEW â•â•â• -->
+            <section class="db-section" id="sec-preview">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Asset Preview</h3>
+                        <p>Review file details and metadata before download.</p>
+                    </div>
+                </div>
+
+                <div class="db-preview-grid">
+                    <div class="db-preview-main">
+                        <div class="db-preview-canvas"><i class="fas fa-image"></i></div>
+                        <div class="db-preview-toolbar">
+                            <button class="db-btn-gold db-btn-sm"><i class="fas fa-download"></i> Download</button>
+                            <button class="db-btn-outline db-btn-sm"><i class="fas fa-star"></i> Favorite</button>
+                            <button class="db-btn-ghost db-btn-sm"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-info-circle"></i> Details</h4></div>
+                        <div class="db-meta-grid">
+                            <div class="db-meta-item"><span>File name</span><strong>Product_Hero_Retina.png</strong></div>
+                            <div class="db-meta-item"><span>Format</span><strong>PNG</strong></div>
+                            <div class="db-meta-item"><span>Size</span><strong>8.1 MB</strong></div>
+                            <div class="db-meta-item"><span>Dimensions</span><strong>3840 Ã— 2160</strong></div>
+                            <div class="db-meta-item"><span>Uploaded</span><strong>Mar 12, 2026</strong></div>
+                            <div class="db-meta-item"><span>Folder</span><strong>My Uploads</strong></div>
+                            <div class="db-meta-item" style="grid-column:1/-1;"><span>Description</span><strong>High-resolution hero image used across the marketing site.</strong></div>
+                            <div class="db-meta-item" style="grid-column:1/-1;"><span>Tags</span><div class="db-tags"><span class="db-badge gold">hero</span><span class="db-badge gray">web</span><span class="db-badge gray">retina</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• DOWNLOADS â•â•â• -->
+            <section class="db-section" id="sec-downloads">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Download History</h3>
+                        <p>A record of files you've downloaded.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-outline db-btn-sm"><i class="fas fa-trash-alt"></i> Clear history</button></div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-timeline">
+                        <div class="db-tl-item"><div class="db-tl-ic dl"><i class="fas fa-download"></i></div><div class="db-tl-body"><strong>Downloaded <span class="hl">Explainer_Reel_30s.mp4</span></strong><span>64 MB Â· Today, 9:12 AM</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic dl"><i class="fas fa-download"></i></div><div class="db-tl-body"><strong>Downloaded <span class="hl">Brand_Guidelines_v3.pdf</span></strong><span>4.2 MB Â· Yesterday</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic dl"><i class="fas fa-download"></i></div><div class="db-tl-body"><strong>Downloaded <span class="hl">Logo_Marks_Final.ai</span></strong><span>8.6 MB Â· 2 days ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic dl"><i class="fas fa-download"></i></div><div class="db-tl-body"><strong>Downloaded <span class="hl">Campaign_Banner_Set.zip</span></strong><span>96 MB Â· 3 days ago</span></div></div>
+                        <div class="db-tl-item"><div class="db-tl-ic dl"><i class="fas fa-download"></i></div><div class="db-tl-body"><strong>Downloaded <span class="hl">Podcast_Intro.wav</span></strong><span>24 MB Â· 5 days ago</span></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• NOTIFICATIONS â•â•â• -->
+            <section class="db-section" id="sec-notifications">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Notifications</h3>
+                        <p>Stay informed about your assets and workspace.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-outline db-btn-sm"><i class="fas fa-check-double"></i> Mark all read</button></div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-notif-item unread">
+                        <div class="db-notif-body"><strong>Your upload was approved</strong><p>Campaign_Banner_B.webp was approved by Amara Lewis.</p><span>5 minutes ago</span></div>
+                    </div>
+                    <div class="db-notif-item unread">
+                        <div class="db-notif-body"><strong>New asset shared with you</strong><p>Splash_Screen_Final.png was shared by Maya Chen.</p><span>2 hours ago</span></div>
+                    </div>
+                    <div class="db-notif-item">
+                        <div class="db-notif-body"><strong>Storage at 42%</strong><p>You've used 42 GB of your 100 GB quota.</p><span>1 day ago</span></div>
+                    </div>
+                    <div class="db-notif-item">
+                        <div class="db-notif-body"><strong>Download complete</strong><p>Explainer_Reel_30s.mp4 has finished downloading.</p><span>Yesterday</span></div>
+                    </div>
+                    <div class="db-notif-item">
+                        <div class="db-notif-body"><strong>Weekly activity summary</strong><p>You uploaded 6 files and downloaded 4 files this week.</p><span>Monday</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- â•â•â• PROFILE â•â•â• -->
+            <section class="db-section" id="sec-profile">
+                <div class="db-section-head">
+                    <div>
+                        <h3>Profile &amp; Settings</h3>
+                        <p>Manage your personal information and preferences.</p>
+                    </div>
+                    <div class="db-head-actions"><button class="db-btn-gold db-btn-sm"><i class="fas fa-save"></i> Save</button></div>
+                </div>
+
+                <div class="db-profile-hero">
+                    <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-80w.webp" alt="Derek">
+                    <div class="db-profile-hero-info">
+                        <h3>Derek Kim</h3>
+                        <p><i class="fas fa-envelope" style="margin-right:6px;"></i>derek@stackly.io Â· <span class="db-badge blue">Editor</span></p>
+                    </div>
+                    <button class="db-btn-outline db-btn-sm"><i class="fas fa-camera"></i> Change photo</button>
+                </div>
+
+                <div class="db-grid-2-eq">
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-user"></i> Personal info</h4></div>
+                        <div class="db-form-grid">
+                            <div class="db-field"><label>First name</label><input type="text" class="db-input" value="Derek"></div>
+                            <div class="db-field"><label>Last name</label><input type="text" class="db-input" value="Kim"></div>
+                            <div class="db-field"><label>Email</label><input type="email" class="db-input" value="derek@stackly.io"></div>
+                            <div class="db-field"><label>Department</label><select class="db-select"><option>Design</option><option>Marketing</option><option>Product</option></select></div>
+                        </div>
+                    </div>
+                    <div class="db-card">
+                        <div class="db-card-head"><h4><i class="fas fa-bell"></i> Preferences</h4></div>
+                        <div class="db-switch-row"><span>Email notifications<p>Product updates and security alerts</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                        <div class="db-switch-row"><span>Download confirmations<p>Notify when downloads finish</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                        <div class="db-switch-row"><span>Weekly digest<p>Get a summary every Monday</p></span><label class="db-switch"><input type="checkbox"><i></i></label></div>
+                        <div class="db-switch-row"><span>Two-factor auth<p>Extra security on sign-in</p></span><label class="db-switch"><input type="checkbox" checked><i></i></label></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+</div>
+
+<script>
+(function(){
+    var titles = {
+        overview: 'Dashboard Overview',
+        'my-assets': 'My Assets',
+        upload: 'Upload Assets',
+        recent: 'Recent Files',
+        favorites: 'Favorites',
+        shared: 'Shared Files',
+        folders: 'Folders & Collections',
+        search: 'Search & Filters',
+        preview: 'Asset Preview',
+        downloads: 'Download History',
+        notifications: 'Notifications',
+        profile: 'Profile & Settings'
+    };
+
+    var navItems = document.querySelectorAll('.db-nav-item');
+    var sections = document.querySelectorAll('.db-section');
+    var topTitle = document.getElementById('dbTopTitle');
+    var sidebar = document.getElementById('dbSidebar');
+    var overlay = document.getElementById('dbOverlay');
+    var menuBtn = document.getElementById('dbMenuBtn');
+
+    function closeSidebar(){ sidebar.classList.remove('open'); overlay.classList.remove('show'); }
+    function openSidebar(){ sidebar.classList.add('open'); overlay.classList.add('show'); }
+
+    var counterDone = {};
+    function runCounters(){
+        var c = document.querySelector('.db-section.active .count');
+        if(!c) return;
+        var target = parseInt(c.getAttribute('data-count'), 10);
+        var start = 0, dur = 900, startTime = null;
+        function step(ts){
+            if(!startTime) startTime = ts;
+            var p = Math.min((ts - startTime) / dur, 1);
+            c.textContent = Math.floor(p * target).toLocaleString();
+            if(p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    function animateBars(){
+        document.querySelectorAll('.db-section.active .db-bar-fill').forEach(function(f){
+            var m = f.getAttribute('style') ? f.getAttribute('style').match(/width:([0-9.]+)%/) : null;
+            if(m){ f.style.width='0%'; setTimeout(function(){ f.style.width = m[1]+'%'; }, 60); }
+        });
+    }
+
+    function switchTab(tab, fromNav){
+        navItems.forEach(function(n){ n.classList.remove('active'); if(n.getAttribute('data-tab')===tab) n.classList.add('active'); });
+        sections.forEach(function(s){ s.classList.remove('active'); if(s.id==='sec-'+tab) s.classList.add('active'); });
+        if(topTitle && titles[tab]) topTitle.textContent = titles[tab];
+        closeSidebar();
+        animateBars();
+        if(!counterDone[tab]){ counterDone[tab]=true; setTimeout(runCounters, 60); }
+    }
+
+    navItems.forEach(function(n){
+        n.addEventListener('click', function(){ switchTab(n.getAttribute('data-tab')); });
+    });
+
+    window.go = function(tab){ switchTab(tab); };
+
+    menuBtn.addEventListener('click', function(){ sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+    overlay.addEventListener('click', closeSidebar);
+
+    window.addEventListener('resize', function(){ if(window.innerWidth > 1024) closeSidebar(); });
+
+    /* upload zone drag/drop visual + fake list */
+    var zone = document.getElementById('dbUploadZone');
+    var list = document.getElementById('dbUploadList');
+    function addFile(){
+        var names = ['campaign_banner.png','hero_shot.webp','logo_vector.ai'];
+        var div = document.createElement('div');
+        div.className = 'db-row db-mt';
+        div.innerHTML = '<div class="db-thumb p2"><i class="fas fa-file-image"></i></div><div class="db-row-txt"><strong>'+names[Math.floor(Math.random()*names.length)]+'</strong><span>Queued Â· 0%</span></div><div class="db-row-side"><button class="db-mini-btn no" onclick="this.parentNode.parentNode.remove()"><i class="fas fa-times"></i></button></div>';
+        list.appendChild(div);
+    }
+    if(zone){
+        zone.addEventListener('dragover', function(e){ e.preventDefault(); zone.classList.add('dragover'); });
+        zone.addEventListener('dragleave', function(){ zone.classList.remove('dragover'); });
+        zone.addEventListener('drop', function(e){ e.preventDefault(); zone.classList.remove('dragover'); addFile(); });
+        zone.addEventListener('click', addFile);
+    }
+
+    var CHART = {
+        gold: '#C9A227', gold2: '#A8861E', goldLight: '#E0BF5C',
+        blue: '#60a5fa', green: '#4ade80', purple: '#c084fc', red: '#f87171',
+        grid: 'rgba(255,255,255,0.06)', gridSoft: 'rgba(255,255,255,0.04)',
+        tick: 'rgba(238,240,246,0.5)'
+    };
+
+    function fontFam(f){ return { family: 'Poppins', size: f || 11 }; }
+
+    function gradFill(ctx, top, mid, bottom){
+        var g = ctx.createLinearGradient(0, 0, 0, 260);
+        g.addColorStop(0, top); g.addColorStop(0.6, mid); g.addColorStop(1, bottom);
+        return g;
+    }
+
+    function tooltipCb(context){
+        var val = context.dataset.data[context.dataIndex];
+        return ' ' + context.dataset.label + ': ' + Number(val).toLocaleString();
+    }
+
+    function doughnutCb(context){
+        var val = context.parsed;
+        var total = context.dataset.data.reduce(function(a,b){ return a+b; }, 0);
+        var pct = total ? Math.round(val/total*100) : 0;
+        return ' ' + context.label + ': ' + Number(val).toLocaleString() + ' (' + pct + '%)';
+    }
+
+    function baseOpts(legend){
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: { duration: 900, easing: 'easeOutQuart' },
+            plugins: {
+                legend: legend === false ? { display: false } : {
+                    labels: { color: CHART.tick, font: fontFam(11), boxWidth: 10, boxHeight: 10, padding: 14, usePointStyle: true, pointStyle: 'circle' }
+                },
+                tooltip: {
+                    backgroundColor: '#151208', titleColor: CHART.goldLight, bodyColor: 'rgba(238,240,246,0.9)',
+                    borderColor: 'rgba(201,162,39,0.4)', borderWidth: 1, padding: 12, cornerRadius: 8,
+                    displayColors: true, boxPadding: 4, titleFont: fontFam(12), bodyFont: fontFam(11),
+                    callbacks: {}
+                }
+            }
+        };
+    }
+
+    function cartesian(legend, beginAtZero){
+        var o = baseOpts(legend);
+        o.scales = {
+            x: { grid: { color: CHART.gridSoft, drawTicks:false }, ticks: { color: CHART.tick, font: fontFam(10), maxRotation: 0 } },
+            y: { beginAtZero: !!beginAtZero, grid: { color: CHART.grid }, ticks: { color: CHART.tick, font: fontFam(10) } }
+        };
+        return o;
+    }
+
+    var charts = {};
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+    function initCharts(){
+        if(typeof Chart === 'undefined') return;
+        var el, ctx;
+
+        /* Personal Asset Activity — area line */
+        el = document.getElementById('userAssetActivity');
+        if(el){
+            ctx = el.getContext('2d');
+            charts.userAssetActivity = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'My activity', data: [6,14,9,18,12,21,17,24,20,28,26,34],
+                        borderColor: CHART.gold, backgroundColor: gradFill(ctx,'rgba(201,162,39,0.5)','rgba(201,162,39,0.12)','rgba(201,162,39,0.02)'),
+                        fill: true, tension: 0.4, borderWidth: 2.5, pointBackgroundColor: CHART.goldLight,
+                        pointBorderColor: '#151208', pointBorderWidth: 1.5, pointRadius: 3, pointHoverRadius: 5
+                    }]
+                },
+                options: (function(){ var o=cartesian(false,true); o.plugins.tooltip.callbacks.label=tooltipCb; return o; })()
+            });
+        }
+
+        /* Uploads vs Downloads — bar */
+        el = document.getElementById('userUploadDownload');
+        if(el){
+            charts.userUploadDownload = new Chart(el.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+                    datasets: [
+                        { label: 'Uploads', data: [8,14,10,18,12,20], backgroundColor: CHART.gold, borderRadius: 5, hoverBackgroundColor: CHART.goldLight },
+                        { label: 'Downloads', data: [4,7,5,9,6,11], backgroundColor: 'rgba(96,165,250,0.75)', borderRadius: 5, hoverBackgroundColor: CHART.blue }
+                    ]
+                },
+                options: (function(){ var o=cartesian(true,true); o.plugins.tooltip.callbacks.label=tooltipCb; return o; })()
+            });
+        }
+
+        /* Storage Usage — doughnut */
+        el = document.getElementById('userStorage');
+        if(el){
+            charts.userStorage = new Chart(el.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Used', 'Free'],
+                    datasets: [{
+                        data: [42, 58],
+                        backgroundColor: ['#C9A227', 'rgba(255,255,255,0.08)'],
+                        borderColor: '#151208', borderWidth: 3, hoverOffset: 8
+                    }]
+                },
+                options: (function(){ var o=baseOpts(true); o.cutout='62%'; o.plugins.tooltip.callbacks.label=doughnutCb; return o; })()
+            });
+        }
+
+        /* Recent Activity — line */
+        el = document.getElementById('userRecentActivity');
+        if(el){
+            ctx = el.getContext('2d');
+            charts.userRecentActivity = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: days,
+                    datasets: [{
+                        label: 'Actions', data: [4,8,6,10,7,3,2],
+                        borderColor: CHART.blue, backgroundColor: gradFill(ctx,'rgba(96,165,250,0.4)','rgba(96,165,250,0.1)','rgba(96,165,250,0.02)'),
+                        fill: true, tension: 0.35, borderWidth: 2.5, pointBackgroundColor: CHART.blue, pointRadius: 3, pointHoverRadius: 5
+                    }]
+                },
+                options: (function(){ var o=cartesian(false,true); o.plugins.tooltip.callbacks.label=tooltipCb; return o; })()
+            });
+        }
+
+        /* Asset Categories — doughnut */
+        el = document.getElementById('userCategories');
+        if(el){
+            charts.userCategories = new Chart(el.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Images','Documents','Video','Audio','Other'],
+                    datasets: [{
+                        data: [220, 132, 58, 32, 44],
+                        backgroundColor: [CHART.gold, CHART.blue, CHART.purple, CHART.green, 'rgba(255,255,255,0.22)'],
+                        borderColor: '#0e0f0f', borderWidth: 3, hoverOffset: 8
+                    }]
+                },
+                options: (function(){ var o=baseOpts(true); o.cutout='55%'; o.plugins.tooltip.callbacks.label=doughnutCb; return o; })()
+            });
+        }
+    }
+
+    function resizeCharts(){
+        if(typeof Chart === 'undefined') return;
+        Object.keys(charts).forEach(function(k){ try{ charts[k].resize(); }catch(e){} });
+    }
+
+    initCharts();
+    setTimeout(resizeCharts, 150);
+    window.addEventListener('resize', function(){ resizeCharts(); });
+
+    switchTab('overview');
+    window.logout = function(){ window.location.href = 'index.html'; };
+})();
+</script>
+</body>
+</html>

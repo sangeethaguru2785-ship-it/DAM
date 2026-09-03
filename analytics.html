@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics � Stackly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+    <header class="site-nav">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="library.html">Asset Library</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li class="active"><a href="analytics.html">Analytics</a></li>
+                    <li><a href="users.html">Users &amp; Roles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-cta">
+                <a href="login.html" class="nav-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Asset Library</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="users.html">Users &amp; Roles</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="mobile-nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-heart">
+                <div>
+                    <div class="page-crumb"><i class="fas fa-house"></i> Home <i class="fas fa-chevron-right"></i> Analytics</div>
+                    <h1>Analytics</h1>
+                    <p>Understand what your team downloads, shares, and reuses � at a glance.</p>
+                </div>
+                <div class="page-hero-actions">
+                    <button class="btn-gold btn-large"><i class="fas fa-file-arrow-down"></i> Export Report</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="kpi-grid">
+
+                <div class="kpi-card anim">
+                    <div class="kpi-icon"><i class="fas fa-download"></i></div>
+                    <div class="kpi-data">
+                        <div class="kpi-label"><i class="fa-solid fa-circle" style="font-size:6px; margin-right:4px;"></i> Downloads</div>
+                        <div class="kpi-num"><span class="count" data-count="128">0</span>K</div>
+                    </div>
+                    <div class="kpi-delta up"><i class="fas fa-arrow-trend-up"></i> 18.4% vs last month</div>
+                </div>
+
+                <div class="kpi-card anim">
+                    <div class="kpi-icon"><i class="fas fa-eye"></i></div>
+                    <div class="kpi-data">
+                        <div class="kpi-label"><i class="fa-solid fa-circle" style="font-size:6px; margin-right:4px;"></i> Asset Views</div>
+                        <div class="kpi-num"><span class="count" data-count="486">0</span>K</div>
+                    </div>
+                    <div class="kpi-delta up"><i class="fas fa-arrow-trend-up"></i> 9.2% vs last month</div>
+                </div>
+
+                <div class="kpi-card anim">
+                    <div class="kpi-icon"><i class="fas fa-share-nodes"></i></div>
+                    <div class="kpi-data">
+                        <div class="kpi-label"><i class="fa-solid fa-circle" style="font-size:6px; margin-right:4px;"></i> Shares</div>
+                        <div class="kpi-num"><span class="count" data-count="34">0</span>K</div>
+                    </div>
+                    <div class="kpi-delta up"><i class="fas fa-arrow-trend-up"></i> 22.1% vs last month</div>
+                </div>
+
+                <div class="kpi-card anim">
+                    <div class="kpi-icon"><i class="fas fa-clock"></i></div>
+                    <div class="kpi-data">
+                        <div class="kpi-label"><i class="fa-solid fa-circle" style="font-size:6px; margin-right:4px;"></i> Avg. Time to Find</div>
+                        <div class="kpi-num"><span class="count" data-count="9">0</span>s</div>
+                    </div>
+                    <div class="kpi-delta down"><i class="fas fa-arrow-trend-down"></i> -3s vs last month</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="charts-section">
+        <div class="container">
+            <div class="range-tabs anim">
+                <button class="range-tab active" data-range="7">Last 7 days</button>
+                <button class="range-tab" data-range="30">Last 30 days</button>
+                <button class="range-tab" data-range="90">Last 90 days</button>
+                <button class="range-tab" data-range="365">Last year</button>
+            </div>
+
+            <div class="chart-grid">
+
+                <div class="chart-card anim" id="barChartCard">
+                    <div class="chart-head">
+                        <h3>Asset Performance</h3>
+                        <div class="chart-legend-inline">
+                            <span><i class="fa-solid fa-circle"></i> Downloads</span>
+                            <span><i class="fa-solid fa-circle"></i> Views</span>
+                        </div>
+                    </div>
+                    <div class="bar-chart" id="barChart">
+                        <div class="bar-col" data-bars="58,84"><div class="bar b1" style="--h:58%" data-val="58K downloads"></div><div class="bar b2" style="--h:84%" data-val="84K views"></div><span class="bar-label">Jan</span></div>
+                        <div class="bar-col" data-bars="70,90"><div class="bar b1" style="--h:70%" data-val="70K downloads"></div><div class="bar b2" style="--h:90%" data-val="90K views"></div><span class="bar-label">Feb</span></div>
+                        <div class="bar-col" data-bars="62,78"><div class="bar b1" style="--h:62%" data-val="62K downloads"></div><div class="bar b2" style="--h:78%" data-val="78K views"></div><span class="bar-label">Mar</span></div>
+                        <div class="bar-col" data-bars="88,95"><div class="bar b1" style="--h:88%" data-val="88K downloads"></div><div class="bar b2" style="--h:95%" data-val="95K views"></div><span class="bar-label">Apr</span></div>
+                        <div class="bar-col" data-bars="54,72"><div class="bar b1" style="--h:54%" data-val="54K downloads"></div><div class="bar b2" style="--h:72%" data-val="72K views"></div><span class="bar-label">May</span></div>
+                        <div class="bar-col" data-bars="80,88"><div class="bar b1" style="--h:80%" data-val="80K downloads"></div><div class="bar b2" style="--h:88%" data-val="88K views"></div><span class="bar-label">Jun</span></div>
+                        <div class="bar-col" data-bars="74,86"><div class="bar b1" style="--h:74%" data-val="74K downloads"></div><div class="bar b2" style="--h:86%" data-val="86K views"></div><span class="bar-label">Jul</span></div>
+                        <div class="bar-col" data-bars="92,99"><div class="bar b1" style="--h:92%" data-val="92K downloads"></div><div class="bar b2" style="--h:99%" data-val="99K views"></div><span class="bar-label">Aug</span></div>
+                    </div>
+                </div>
+
+                <div class="chart-card anim">
+                    <div class="chart-head">
+                        <h3>Assets by Type</h3>
+                        <div class="chart-legend-inline"><span><i class="fa-solid fa-circle"></i> Share of library</span></div>
+                    </div>
+                    <div class="donut-wrap">
+                        <div class="donut">
+                            <div class="donut-center">
+                                <strong>128K</strong>
+                                <span>Total assets</span>
+                            </div>
+                        </div>
+                        <ul class="legend">
+                            <li><span class="swatch" style="background:var(--blue)"></span> <span>Images</span> <strong>46%</strong></li>
+                            <li><span class="swatch" style="background:#B9973A"></span> <span>Videos</span> <strong>24%</strong></li>
+                            <li><span class="swatch" style="background:#E8DEBE"></span> <span>Documents</span> <strong>17%</strong></li>
+                            <li><span class="swatch" style="background:#E0BF5C"></span> <span>Design</span> <strong>9%</strong></li>
+                            <li><span class="swatch" style="background:var(--line)"></span> <span>Audio</span> <strong>4%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="top-assets anim">
+                <div class="chart-head">
+                    <h3>Top Performing Assets</h3>
+                    <span class="top-card-note" style="font-size:.75rem; color:var(--muted);"><i class="fas fa-rotate"></i> Updated 5 min ago</span>
+                </div>
+                <ul class="top-assets-list" style="list-style:none; padding:0;">
+
+                    <li>
+                        <img src="assets/images/unsplash-1558655146-9f40138edfeb.webp" alt="hero banner" loading="lazy">
+                        <div class="ta-name">
+                            <strong>hero-banner-v3.psd</strong>
+                            <span>Image � Brand Refresh</span>
+                        </div>
+                        <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">32K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
+                        <div class="ta-bar"><i style="width:100%;"></i></div>
+                    </li>
+
+                    <li>
+                        <img src="assets/images/unsplash-1485846234645-a62644f84728.webp" alt="promo video" loading="lazy">
+                        <div class="ta-name">
+                            <strong>promo-review-4k.mov</strong>
+                            <span>Video � Marketing Campaigns</span>
+                        </div>
+                        <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">28K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
+                        <div class="ta-bar"><i style="width:87%;"></i></div>
+                    </li>
+
+                    <li>
+                        <img src="assets/images/unsplash-1441986300917-64674bd600d8.webp" alt="product photo" loading="lazy">
+                        <div class="ta-name">
+                            <strong>product-lifestyle-01.webp</strong>
+                            <span>Image � Product Photography</span>
+                        </div>
+                        <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">21K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
+                        <div class="ta-bar"><i style="width:66%;"></i></div>
+                    </li>
+
+                    <li>
+                        <img src="assets/images/unsplash-1561070791-2526d30994b5.webp" alt="logo" loading="lazy">
+                        <div class="ta-name">
+                            <strong>logo-final.svg</strong>
+                            <span>Design � Brand &amp; Identity</span>
+                        </div>
+                        <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">15K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
+                        <div class="ta-bar"><i style="width:47%;"></i></div>
+                    </li>
+
+                    <li>
+                        <img src="assets/images/unsplash-1450101499163-c8848c66ca85.webp" alt="brand guide" loading="lazy">
+                        <div class="ta-name">
+                            <strong>brand-guide-2026.pdf</strong>
+                            <span>Document � Reports &amp; Presentations</span>
+                        </div>
+                        <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">11K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
+                        <div class="ta-bar"><i style="width:34%;"></i></div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Activity + Storage -->
+    <section class="an-sec alt-bg">
+        <div class="container">
+            <div class="an-grid-2">
+
+                <div class="an-card anim">
+                    <div class="an-head">
+                        <h3>Team Activity</h3>
+                        <span class="an-icon"><i class="fas fa-users-gear"></i></span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <img src="assets/images/unsplash-1494790108377-be9c29b29330-120w.webp" alt="Amara" loading="lazy">
+                            <div class="av-info"><strong>Amara Lewis</strong><span>224 uploads � 86 shares</span></div>
+                            <div class="av-metric"><strong>1.2K</strong><span>assets used</span></div>
+                        </div>
+                        <div class="activity-item">
+                            <img src="assets/images/unsplash-1534528741775-53994a69daeb-120w.webp" alt="Marco" loading="lazy">
+                            <div class="av-info"><strong>Marco Reyes</strong><span>148 uploads � 210 shares</span></div>
+                            <div class="av-metric"><strong>980</strong><span>assets used</span></div>
+                        </div>
+                        <div class="activity-item">
+                            <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-120w.webp" alt="Derek" loading="lazy">
+                            <div class="av-info"><strong>Derek Kim</strong><span>96 uploads � 64 shares</span></div>
+                            <div class="av-metric"><strong>742</strong><span>assets used</span></div>
+                        </div>
+                        <div class="activity-item">
+                            <img src="assets/images/unsplash-1544005313-94ddf0286df2-120w.webp" alt="Nina" loading="lazy">
+                            <div class="av-info"><strong>Nina Alvarez</strong><span>54 uploads � 33 shares</span></div>
+                            <div class="av-metric"><strong>510</strong><span>assets used</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="an-card storage-block anim">
+                    <div class="an-head">
+                        <h3>Storage &amp; Bandwidth</h3>
+                        <span class="an-icon"><i class="fas fa-hard-drive"></i></span>
+                    </div>
+                    <div class="st-head">
+                        <strong>3.4 TB used</strong>
+                        <span>of 5 TB plan</span>
+                    </div>
+                    <div class="storage-meter-lg"><i style="width:68%;"></i></div>
+                    <div class="storage-legend">
+                        <div class="sl-item"><span>Images</span><strong>1.6 TB</strong></div>
+                        <div class="sl-item"><span>Videos</span><strong>1.4 TB</strong></div>
+                        <div class="sl-item"><span>Documents</span><strong>0.4 TB</strong></div>
+                    </div>
+                    <div style="height:1px; background:var(--line); margin:22px 0;"></div>
+                    <div class="bandwidth-bars">
+                        <div class="bw-row">
+                            <div class="bw-top"><span>Downloads (this month)</span><strong>284 GB</strong></div>
+                            <div class="bw-bar"><i style="width:76%;"></i></div>
+                        </div>
+                        <div class="bw-row">
+                            <div class="bw-top"><span>Previews streamed</span><strong>192 GB</strong></div>
+                            <div class="bw-bar"><i style="width:52%;"></i></div>
+                        </div>
+                        <div class="bw-row">
+                            <div class="bw-top"><span>Shared link traffic</span><strong>88 GB</strong></div>
+                            <div class="bw-bar"><i style="width:24%;"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Search + Top Teams -->
+    <section class="an-sec">
+        <div class="container">
+            <div class="an-grid-2">
+
+                <div class="an-card anim">
+                    <div class="an-head">
+                        <h3>Top Search Terms</h3>
+                        <span class="an-icon"><i class="fas fa-magnifying-glass"></i></span>
+                    </div>
+                    <div class="search-term-row">
+                        <span class="st-rank top">1</span>
+                        <span class="st-name"><i class="fas fa-tag"></i> hero banner</span>
+                        <span class="st-count">3,210</span>
+                        <div class="st-bar"><i style="width:100%;"></i></div>
+                    </div>
+                    <div class="search-term-row">
+                        <span class="st-rank top">2</span>
+                        <span class="st-name"><i class="fas fa-tag"></i> product lifestyle</span>
+                        <span class="st-count">2,876</span>
+                        <div class="st-bar"><i style="width:90%;"></i></div>
+                    </div>
+                    <div class="search-term-row">
+                        <span class="st-rank top">3</span>
+                        <span class="st-name"><i class="fas fa-tag"></i> brand logo</span>
+                        <span class="st-count">2,194</span>
+                        <div class="st-bar"><i style="width:68%;"></i></div>
+                    </div>
+                    <div class="search-term-row">
+                        <span class="st-rank">4</span>
+                        <span class="st-name"><i class="fas fa-tag"></i> promo video</span>
+                        <span class="st-count">1,743</span>
+                        <div class="st-bar"><i style="width:54%;"></i></div>
+                    </div>
+                    <div class="search-term-row">
+                        <span class="st-rank">5</span>
+                        <span class="st-name"><i class="fas fa-tag"></i> campaign 2026</span>
+                        <span class="st-count">1,120</span>
+                        <div class="st-bar"><i style="width:35%;"></i></div>
+                    </div>
+                    <div class="tag-cloud">
+                        <span class="tc-tag lg">#brand</span>
+                        <span class="tc-tag">#campaign</span>
+                        <span class="tc-tag">#product</span>
+                        <span class="tc-tag">#video</span>
+                        <span class="tc-tag">#launch</span>
+                        <span class="tc-tag">#social</span>
+                    </div>
+                </div>
+
+                <div class="an-card anim">
+                    <div class="an-head">
+                        <h3>Top Teams by Usage</h3>
+                        <span class="an-icon"><i class="fas fa-ranking-star"></i></span>
+                    </div>
+                    <div class="team-list">
+                        <div class="team-row">
+                            <span class="team-avatar">MKT</span>
+                            <div class="team-info"><strong>Marketing</strong><span>3,482 downloads this month</span></div>
+                            <span class="team-pct">31%</span>
+                        </div>
+                        <div class="team-row">
+                            <span class="team-avatar g2">DSG</span>
+                            <div class="team-info"><strong>Design</strong><span>2,934 downloads this month</span></div>
+                            <span class="team-pct">26%</span>
+                        </div>
+                        <div class="team-row">
+                            <span class="team-avatar g3">PRD</span>
+                            <div class="team-info"><strong>Product</strong><span>2,150 downloads this month</span></div>
+                            <span class="team-pct">19%</span>
+                        </div>
+                        <div class="team-row">
+                            <span class="team-avatar g4">SLS</span>
+                            <div class="team-info"><strong>Sales</strong><span>1,640 downloads this month</span></div>
+                            <span class="team-pct">15%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Features -->
+    <section class="an-sec alt-bg an-features">
+        <div class="container">
+            <div class="section-head anim">
+                <span class="section-icon"><i class="fas fa-chart-line"></i></span>
+                <h2>Analytics That Move You Forward</h2>
+                <p>Turn raw usage data into clear, confident decisions.</p>
+            </div>
+            <div class="an-feature-grid">
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Dashboards refresh the moment your team interacts with assets.</p>
+                </div>
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-filter"></i></div>
+                    <h3>Flexible Filters</h3>
+                    <p>Slice by team, date, asset type, or collection to find the story.</p>
+                </div>
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-file-export"></i></div>
+                    <h3>One-Click Exports</h3>
+                    <p>Ship polished PDF or CSV reports straight to your stakeholders.</p>
+                </div>
+                <div class="an-feature anim">
+                    <div class="af-icon"><i class="fas fa-arrow-trend-up"></i></div>
+                    <h3>Trend Detection</h3>
+                    <p>Spot rising assets and content fatigue before it costs you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Newsletter Section -->
+    <section class="newsletter-cta">
+        <div class="nc-lines"></div>
+        <div class="container">
+            <div class="newsletter-cta-inner">
+                <div class="newsletter-cta-text">
+                    <span class="newsletter-cta-label"><i class="fas fa-paper-plane"></i> Stay Updated</span>
+                    <h2>Stay Ahead <span class="gold-text">with Stackly</span></h2>
+                    <p class="nc-desc">Join 30,000+ creative leaders getting product updates, DAM tips, and exclusive industry insights straight to their inbox — no spam, ever.</p>
+                </div>
+                <div class="newsletter-cta-form-wrap">
+                    <form class="newsletter-cta-form">
+                        <div class="nc-input-row">
+                            <input type="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="nc-btn">Subscribe <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                        <p class="nc-note"><i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.</p>
+                    </form>
+                    <div class="newsletter-cta-success"><i class="fas fa-check-circle"></i> Thanks for subscribing! Check your inbox to confirm.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand footer-logo">
+                        <img src="assets/images/logo.webp" alt="Stackly" class="brand-logo">
+                    </a>
+                    <p>Stackly is a team of seasoned media engineers and brand strategists crafting the ultimate home for your digital assets.</p>
+                    <div class="footer-social">
+                        <a href="404.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html"><i class="xi-x" aria-hidden="true"></i></a>
+                        <a href="404.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="library.html">Asset Library</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="users.html">Users &amp; Roles</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Integrations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
+                        <li><a href="#"><i class="fab fa-figma"></i> Figma</a></li>
+                        <li><a href="#"><i class="fab fa-slack"></i> Slack</a></li>
+                        <li><a href="#"><i class="fab fa-shopify"></i> Shopify</a></li>
+                        <li><a href="#"><i class="fab fa-google-drive"></i> Google Drive</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 355 S Grand Ave, Suite 100, Los Angeles</li>
+                        <li><i class="fas fa-envelope"></i> hello@stackly.io</li>
+                        <li><i class="fas fa-phone-alt"></i> 0165.406.6456</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">Terms &amp; Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
