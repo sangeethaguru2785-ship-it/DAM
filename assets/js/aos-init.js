@@ -64,6 +64,16 @@
         fade(el, 60);
     });
 
+    /* 6) Footer: columns fade up one after another, then the bottom bar */
+    Array.prototype.slice.call(document.querySelectorAll('.footer-grid > *')).forEach(function (col, i) {
+        covered.add(col);
+        fade(col, i * 80);
+    });
+    Array.prototype.slice.call(document.querySelectorAll('.footer-bottom')).forEach(function (el) {
+        covered.add(el);
+        fade(el, 200);
+    });
+
     AOS.init({
         duration: 750,
         easing: 'ease-out-cubic',

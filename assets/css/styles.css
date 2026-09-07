@@ -2230,11 +2230,17 @@ body.nav-open {
 .footer-links a {
     color: var(--ice);
     font-size: 0.9rem;
+    padding-bottom: 2px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 1.5px;
+    transition: background-size 0.35s ease, color 0.35s ease;
 }
 
 .footer-links a:hover {
     color: var(--white);
-    padding-left: 5px;
+    background-size: 100% 1.5px;
 }
 
 .award-note {
@@ -2288,10 +2294,17 @@ body.nav-open {
 .footer-bottom-links a {
     font-size: 0.82rem;
     color: var(--ice);
+    padding-bottom: 2px;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 1.5px;
+    transition: background-size 0.35s ease, color 0.35s ease;
 }
 
 .footer-bottom-links a:hover {
     color: var(--white);
+    background-size: 100% 1.5px;
 }
 
 /* Reveal animation */
@@ -10479,6 +10492,11 @@ html.js .hero p.sub-visible {
     .hero-buttons,
     .hero-stat {
         animation: none !important;
+    }
+
+    .footer-links a,
+    .footer-bottom-links a {
+        transition: none;
     }
 }
 
