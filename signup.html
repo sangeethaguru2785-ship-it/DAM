@@ -8,138 +8,176 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
 </head>
 <body>
 
-<div class="auth-page">
-    <div class="auth-shell auth-wide">
+<div class="au-page">
 
-        <div class="auth-head">
-            <a href="index.html" class="auth-logo">
+    <!-- Visual showcase panel -->
+    <aside class="au-show">
+        <div class="au-show-top">
+            <a href="index.html" class="au-brand">
                 <img src="assets/images/logo.webp" alt="Stackly">
             </a>
-            <h1>Create Your <span>Account</span></h1>
-            <p>Join Stackly in seconds. Choose your role to get started.</p>
+            <span class="au-cus-tag">Join the movement</span>
         </div>
 
-        <div class="auth-card">
+        <div class="au-show-body">
+            <h2>One home for all your <em>creative</em> work.</h2>
+            <p>Create your free workspace and give every image, video, and document a secure home your team will actually love.</p>
+
+            <div class="au-collage">
+                <div class="au-collage-grid">
+                    <div class="au-collage-photo big">
+                        <img src="assets/images/unsplash-1558655146-9f40138edfeb-700w.webp" alt="Design asset">
+                    </div>
+                    <div class="au-collage-photo">
+                        <img src="assets/images/unsplash-1561070791-2526d30994b5-700w.webp" alt="Logo asset">
+                    </div>
+                    <div class="au-collage-photo">
+                        <img src="assets/images/unsplash-1441986300917-64674bd600d8-700w.webp" alt="Product asset">
+                    </div>
+                </div>
+
+                <div class="au-float f1">
+                    <span class="au-f-ico"><i class="fas fa-wand-magic-sparkles"></i></span>
+                    <div>
+                        <strong>Instant setup</strong>
+                        <span>Live in under 60 seconds</span>
+                    </div>
+                </div>
+                <div class="au-float f2">
+                    <span class="au-f-ico"><i class="fas fa-infinity"></i></span>
+                    <div>
+                        <strong>Free to start</strong>
+                        <span>No credit card required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="au-show-foot">
+            <span class="au-sf-item"><i class="fas fa-magnifying-glass"></i> AI-powered search</span>
+            <span class="au-sf-item"><i class="fas fa-code-branch"></i> Version control</span>
+            <span class="au-sf-item"><i class="fas fa-share-nodes"></i> Secure sharing</span>
+        </div>
+    </aside>
+
+    <!-- Form panel -->
+    <main class="au-form-panel">
+        <div class="au-form-wrap">
+
+            <header class="au-head">
+                <div class="au-eyebrow">Get started free</div>
+                <h1>Create your <span>account</span></h1>
+                <p>Join Stackly in seconds — choose your role and start organizing.</p>
+            </header>
+
+            <div class="au-access">
+                <span>I want to sign up as a</span>
+                <div class="au-toggle" id="toggleRole">
+                    <button type="button" class="on" data-role="admin">Team Admin</button>
+                    <button type="button" data-role="user">Team User</button>
+                </div>
+            </div>
+
             <form id="signupForm" novalidate>
 
-                <!-- Role selection -->
-                <label class="auth-label" id="roleFieldLabel">Sign up as</label>
-                <div class="auth-role" id="roleSelect">
-                    <div class="auth-role-card" data-role="admin">
-                        <span class="role-check"><i class="fas fa-check"></i></span>
-                        <div class="role-ic admin"><i class="fas fa-user-shield"></i></div>
-                        <strong>Admin</strong>
-                        <span>Manage users, assets &amp; settings</span>
-                    </div>
-                    <div class="auth-role-card" data-role="user">
-                        <span class="role-check"><i class="fas fa-check"></i></span>
-                        <div class="role-ic user"><i class="fas fa-user"></i></div>
-                        <strong>User</strong>
-                        <span>Upload &amp; organize your assets</span>
-                    </div>
-                </div>
-                <div class="auth-field error hidden" id="roleError">
-                    <div class="auth-error"><i class="fas fa-exclamation-circle"></i> Please select a role.</div>
-                </div>
-
-                <!-- Full name -->
-                <div class="auth-field" id="field-name">
+                <div class="au-field au-reveal" id="field-name" style="animation-delay:0.05s">
                     <label for="name">Full name</label>
-                    <div class="auth-input-wrap">
-                        <i class="fas fa-user auth-input-lead"></i>
-                        <input type="text" id="name" class="auth-input" placeholder="Jane Smith" autocomplete="name">
+                    <div class="au-in-wrap">
+                        <i class="fas fa-user au-in-ico"></i>
+                        <input type="text" id="name" class="au-in" placeholder="Jane Smith" autocomplete="name">
                     </div>
-                    <div class="auth-error hidden" id="nameError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                    <div class="au-error" id="nameError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
                 </div>
 
-                <!-- Email -->
-                <div class="auth-field" id="field-email">
-                    <label for="email">Email address</label>
-                    <div class="auth-input-wrap">
-                        <i class="fas fa-envelope auth-input-lead"></i>
-                        <input type="email" id="email" class="auth-input" placeholder="you@company.com" autocomplete="email">
+                <div class="au-field au-reveal" id="field-email" style="animation-delay:0.1s">
+                    <label for="email">Work email</label>
+                    <div class="au-in-wrap">
+                        <i class="fas fa-envelope au-in-ico"></i>
+                        <input type="email" id="email" class="au-in" placeholder="you@company.com" autocomplete="email">
                     </div>
-                    <div class="auth-error hidden" id="emailError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                    <div class="au-error" id="emailError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
                 </div>
 
-                <!-- Password -->
-                <div class="auth-field" id="field-password">
+                <div class="au-field au-reveal" id="field-password" style="animation-delay:0.15s">
                     <label for="password">Password</label>
-                    <div class="auth-input-wrap">
-                        <i class="fas fa-lock auth-input-lead"></i>
-                        <input type="password" id="password" class="auth-input" placeholder="Create a password" autocomplete="new-password">
-                        <button type="button" class="auth-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
+                    <div class="au-in-wrap">
+                        <i class="fas fa-lock au-in-ico"></i>
+                        <input type="password" id="password" class="au-in" placeholder="Create a password" autocomplete="new-password">
+                        <button type="button" class="au-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
                     </div>
-                    <div class="auth-error hidden" id="passwordError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
-                    <div class="auth-pw-hints" id="pwHints">
-                        <div class="auth-hint-title">Password must contain</div>
-                        <div class="auth-hint-row" data-req="len"><i class="fas fa-circle"></i> 8+ characters</div>
-                        <div class="auth-hint-row" data-req="upper"><i class="fas fa-circle"></i> One uppercase letter</div>
-                        <div class="auth-hint-row" data-req="lower"><i class="fas fa-circle"></i> One lowercase letter</div>
-                        <div class="auth-hint-row" data-req="num"><i class="fas fa-circle"></i> One number</div>
-                        <div class="auth-hint-row" data-req="sym"><i class="fas fa-circle"></i> One special character</div>
+                    <div class="au-error" id="passwordError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                    <div class="au-hints" id="pwHints">
+                        <div class="au-hint-title">Password must contain</div>
+                        <div class="au-hint-row" data-req="len"><i class="fas fa-circle"></i> 8+ characters</div>
+                        <div class="au-hint-row" data-req="upper"><i class="fas fa-circle"></i> Uppercase letter</div>
+                        <div class="au-hint-row" data-req="lower"><i class="fas fa-circle"></i> Lowercase letter</div>
+                        <div class="au-hint-row" data-req="num"><i class="fas fa-circle"></i> Number</div>
+                        <div class="au-hint-row" data-req="sym"><i class="fas fa-circle"></i> Special character</div>
                     </div>
                 </div>
 
-                <!-- Confirm password -->
-                <div class="auth-field" id="field-confirm">
+                <div class="au-field au-reveal" id="field-confirm" style="animation-delay:0.2s">
                     <label for="confirm">Confirm password</label>
-                    <div class="auth-input-wrap">
-                        <i class="fas fa-lock auth-input-lead"></i>
-                        <input type="password" id="confirm" class="auth-input" placeholder="Re-enter your password" autocomplete="new-password">
-                        <button type="button" class="auth-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
+                    <div class="au-in-wrap">
+                        <i class="fas fa-lock au-in-ico"></i>
+                        <input type="password" id="confirm" class="au-in" placeholder="Re-enter your password" autocomplete="new-password">
+                        <button type="button" class="au-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
                     </div>
-                    <div class="auth-error hidden" id="confirmError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                    <div class="au-error" id="confirmError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
                 </div>
 
-                <!-- Terms -->
-                <div class="auth-terms" id="termsWrap">
-                    <label class="auth-check">
+                <div class="au-terms au-reveal" id="termsWrap" style="animation-delay:0.25s">
+                    <label class="au-check">
                         <input type="checkbox" id="terms">
-                        <span class="auth-check-box"><i class="fas fa-check"></i></span>
+                        <span class="au-check-box"><i class="fas fa-check"></i></span>
                     </label>
-                    <span>I agree to the <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>. <span class="auth-terms-error">Please accept the terms to continue.</span></span>
+                    <span>I agree to the <a href="404.html">Terms &amp; Conditions</a> and <a href="404.html">Privacy Policy</a>. <span class="au-terms-error">Please accept the terms to continue.</span></span>
                 </div>
 
-                <button type="submit" class="auth-submit">Create Account <i class="fas fa-arrow-right"></i></button>
+                <button type="submit" class="au-submit au-reveal" style="animation-delay:0.3s">Create Account <i class="fas fa-arrow-right"></i></button>
 
-                <div class="auth-alert" id="authAlert"><i class="fas fa-exclamation-triangle"></i> <span id="authAlertMsg"></span></div>
+                <div class="au-error-msg" id="auAlert"><i class="fas fa-exclamation-triangle"></i> <span id="auAlertMsg"></span></div>
+
+                <div class="au-divider au-reveal" style="animation-delay:0.33s">or sign up with</div>
+                <div class="au-alt au-reveal" style="animation-delay:0.36s">
+                    <a href="404.html" class="au-alt-btn" id="googleBtn"><i class="fab fa-google"></i> Google</a>
+                    <a href="#" class="au-alt-btn" id="ssoBtn"><i class="fas fa-id-badge"></i> Single Sign-On</a>
+                </div>
             </form>
 
-            <div class="auth-switch">
+            <div class="au-switch au-reveal" style="animation-delay:0.38s">
                 Already have an account? <a href="login.html">Sign in</a>
             </div>
-            <div style="text-align:center;">
-                <a href="index.html" class="auth-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+            <div style="text-align:center">
+                <a href="index.html" class="au-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
             </div>
         </div>
+    </main>
 
-    </div>
 </div>
 
 <script>
 (function(){
-    var role = null;
-    var roleCards = document.querySelectorAll('.auth-role-card');
-    var roleError = document.getElementById('roleError');
+    var role = 'admin';
+    var toggleBtns = document.querySelectorAll('#toggleRole button');
 
-    roleCards.forEach(function(card){
-        card.addEventListener('click', function(){
-            roleCards.forEach(function(c){ c.classList.remove('sel'); });
-            card.classList.add('sel');
-            role = card.getAttribute('data-role');
-            roleError.classList.add('hidden');
+    toggleBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            toggleBtns.forEach(function(b){ b.classList.remove('on'); });
+            btn.classList.add('on');
+            role = btn.getAttribute('data-role');
         });
     });
 
-    /* Show / Hide password across password fields */
     document.querySelectorAll('[data-toggle="password"]').forEach(function(btn){
         btn.addEventListener('click', function(){
-            var input = this.parentNode.querySelector('.auth-input');
+            var input = this.parentNode.querySelector('.au-in');
             var ic = this.querySelector('i');
             if(input.type === 'password'){
                 input.type = 'text';
@@ -169,7 +207,7 @@
         }
     }
 
-    function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+    function validEmail(v){ return /^[A-Za-z0-9.]+@[A-Za-z0-9.]+\.[A-Za-z0-9.]+$/.test(v); }
     function validPassword(v){ return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(v); }
 
     var hints = [
@@ -183,7 +221,7 @@
     document.getElementById('password').addEventListener('input', function(){
         var v = this.value;
         hints.forEach(function(h){
-            var row = document.querySelector('.auth-hint-row[data-req="'+h.req+'"]');
+            var row = document.querySelector('.au-hint-row[data-req="'+h.req+'"]');
             if(!row) return;
             if(h.re.test(v)){
                 row.classList.add('met');
@@ -196,15 +234,13 @@
         setError('password', null);
     });
 
-    document.getElementById('confirm').addEventListener('input', function(){
-        setError('confirm', null);
-    });
+    document.getElementById('confirm').addEventListener('input', function(){ setError('confirm', null); });
     document.getElementById('email').addEventListener('input', function(){ setError('email', null); });
     document.getElementById('name').addEventListener('input', function(){ setError('name', null); });
 
     function showAlert(msg){
-        var a = document.getElementById('authAlert');
-        document.getElementById('authAlertMsg').textContent = msg;
+        var a = document.getElementById('auAlert');
+        document.getElementById('auAlertMsg').textContent = msg;
         a.classList.add('show');
         setTimeout(function(){ a.classList.remove('show'); }, 4000);
     }
@@ -220,10 +256,8 @@
         var terms = document.getElementById('terms').checked;
         var ok = true;
 
-        if(!role){ roleError.classList.remove('hidden'); ok = false; }
-        else roleError.classList.add('hidden');
-
         if(!name){ setError('name','Full name is required.'); ok = false; }
+        else if(!/^[A-Za-z\s]+$/.test(name)){ setError('name','Name may only contain letters (A–Z).'); ok = false; }
         else if(name.split(/\s+/).filter(Boolean).length < 2){ setError('name','Please enter your first and last name.'); ok = false; }
         else setError('name', null);
 
@@ -240,18 +274,48 @@
         else setError('confirm', null);
 
         var termsWrap = document.getElementById('termsWrap');
-        if(!terms){ termsWrap.classList.add('error'); ok = false; }
-        else termsWrap.classList.remove('error');
+        if(!terms){ termsWrap.classList.add('err'); ok = false; }
+        else termsWrap.classList.remove('err');
 
         if(!ok) return;
 
         try { localStorage.setItem('stackly_role', role); } catch(err){}
+        try {
+            localStorage.setItem('stackly_name', name);
+            localStorage.setItem('stackly_email', email);
+        } catch(err){}
 
         var dest = role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
-        showAlert('Account created — redirecting…');
+        showAlert('Account created — welcome to Stackly! Redirecting…');
         setTimeout(function(){ window.location.href = dest; }, 900);
+    });
+
+    document.getElementById('googleBtn').addEventListener('click', function(e){
+        e.preventDefault();
+        window.location.href = '404.html';
+    });
+
+    document.getElementById('ssoBtn').addEventListener('click', function(e){
+        e.preventDefault();
+        window.location.href = '404.html';
     });
 })();
 </script>
+    <script>
+/** Email fields accept only A-Z, a-z, 0-9, @ and . — reject spaces & other specials */
+document.addEventListener('input', function (e) {
+    if (e.target && e.target.type === 'email') {
+        var clean = e.target.value.replace(/[^A-Za-z0-9@.]/g, '');
+        if (clean !== e.target.value) e.target.value = clean;
+    }
+}, true);
+</script>
+    <script src="assets/js/backtotop.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/aos-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap-init.js"></script>
+    
 </body>
 </html>

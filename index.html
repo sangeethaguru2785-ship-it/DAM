@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="home">
 
     <header class="site-nav">
         <div class="container">
@@ -23,7 +25,7 @@
                     <li><a href="library.html">Asset Library</a></li>
                     <li><a href="collections.html">Collections</a></li>
                     <li><a href="analytics.html">Analytics</a></li>
-                    <li><a href="users.html">Users &amp; Roles</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 
@@ -43,7 +45,7 @@
             <li><a href="library.html">Asset Library</a></li>
             <li><a href="collections.html">Collections</a></li>
             <li><a href="analytics.html">Analytics</a></li>
-            <li><a href="users.html">Users &amp; Roles</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="login.html" class="mobile-nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
@@ -51,6 +53,33 @@
 
     <!-- 1. Hero Section -->
     <section id="home" class="hero">
+        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto">
+            <source src="dam1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <script>
+            (function () {
+                var v = document.getElementById('heroVideo');
+                if (!v) { return; }
+                v.muted = true;
+                var showFallback = function () {
+                    v.classList.add('hero-video-fallback-hidden');
+                    v.removeAttribute('autoplay');
+                };
+                var tryPlay = function () {
+                    var p = v.play();
+                    if (p && p.catch) {
+                        p.catch(function () {
+                            v.muted = true;
+                            v.play().catch(function () { showFallback(); });
+                        });
+                    }
+                };
+                tryPlay();
+                v.addEventListener('loadeddata', function () { v.classList.remove('hero-video-fallback-hidden'); });
+                v.addEventListener('error', showFallback);
+            })();
+        </script>
         <div class="hero-bg"></div>
         <div class="container hero-inner">
             <div class="hero-content">
@@ -58,19 +87,21 @@
                 <h1>Every Creative Asset.<br>One <span class="gold-text">Beautiful</span> Command Center.</h1>
                 <p>Organize, protect, and deliver every image, video, and document so your whole team can find what they need — in seconds, not days.</p>
                 <div class="hero-buttons">
-                    <a href="library.html" class="btn-gold btn-large">Get Started Free</a>
-                    <a href="contact.html" class="btn-outline btn-large">Book a Demo <i class="fas fa-play"></i></a>
+                    <a href="404.html" class="btn-gold btn-large">Get Started Free</a>
+                    <a href="404.html" class="btn-outline btn-large">Book a Demo <i class="fas fa-play"></i></a>
                 </div>
-                <div class="hero-trust">
-                    <div class="hero-avatars">
-                        <img src="assets/images/unsplash-1494790108377-be9c29b29330-80w.webp" alt="Team member">
-                        <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-80w.webp" alt="Team member">
-                        <img src="assets/images/unsplash-1580489944761-15a19d654956-80w.webp" alt="Team member">
-                        <img src="assets/images/unsplash-1500648767791-00dcc994a43e-80w.webp" alt="Team member">
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <strong>2M+</strong>
+                        <span>Assets centrally managed</span>
                     </div>
-                    <div class="hero-trust-text">
-                        <strong>Trusted by 380+ creative teams</strong>
-                        <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.9/5 rating</span>
+                    <div class="hero-stat">
+                        <strong>&lt;12s</strong>
+                        <span>From upload to shared link</span>
+                    </div>
+                    <div class="hero-stat">
+                        <strong>SOC 2</strong>
+                        <span>Encrypted &amp; fully audited</span>
                     </div>
                 </div>
             </div>
@@ -100,19 +131,19 @@
                             </div>
                             <div class="asset-grid">
                                 <div class="asset-card">
-                                    <div class="asset-preview p1"><i class="fas fa-image"></i></div>
+                                    <div class="asset-preview p1"><img src="assets/images/unsplash-1558655146-9f40138edfeb-800w.webp" alt="hero-banner-v3" loading="lazy"></div>
                                     <div class="asset-meta"><strong>hero-banner-v3</strong><span>PSD · 24 MB</span></div>
                                 </div>
                                 <div class="asset-card">
-                                    <div class="asset-preview p2"><i class="fas fa-video"></i></div>
+                                    <div class="asset-preview p2"><img src="assets/images/unsplash-1485846234645-a62644f84728-800w.webp" alt="brand-guide swatches" loading="lazy"></div>
                                     <div class="asset-meta"><strong>promo-review</strong><span>MOV · 1.2 GB</span></div>
                                 </div>
                                 <div class="asset-card">
-                                    <div class="asset-preview p3"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="asset-preview p3"><img src="assets/images/unsplash-1441986300917-64674bd600d8-800w.webp" alt="brand-guide-26" loading="lazy"></div>
                                     <div class="asset-meta"><strong>brand-guide-26</strong><span>PDF · 48 MB</span></div>
                                 </div>
                                 <div class="asset-card">
-                                    <div class="asset-preview p4"><i class="fas fa-paintbrush"></i></div>
+                                    <div class="asset-preview p4"><img src="assets/images/unsplash-1561070791-2526d30994b5-800w.webp" alt="logo-final" loading="lazy"></div>
                                     <div class="asset-meta"><strong>logo-final</strong><span>SVG · 1 MB</span></div>
                                 </div>
                             </div>
@@ -156,34 +187,22 @@
             </div>
             <div class="features-grid">
                 <a href="library.html" class="feature-card anim">
+                    <div class="feature-media"><img src="assets/images/unsplash-1460925895917-afdab827c52f-700w.webp" alt="Centralized asset library" loading="lazy"></div>
                     <div class="feature-icon"><i class="fas fa-box-archive"></i></div>
                     <h3>Centralized Asset Management</h3>
                     <p>Store all images, videos, docs, and design files in one secure, searchable library everyone can use.</p>
                 </a>
                 <a href="library.html" class="feature-card anim">
+                    <div class="feature-media"><img src="assets/images/unsplash-1462206092226-f46025ffe607-700w.webp" alt="AI search interface" loading="lazy"></div>
                     <div class="feature-icon"><i class="fas fa-brain"></i></div>
                     <h3>AI-Powered Search</h3>
                     <p>Find anything by keyword, color, object, or person. Machine learning tags every upload automatically.</p>
                 </a>
                 <a href="collections.html" class="feature-card anim">
+                    <div class="feature-media"><img src="assets/images/unsplash-1554224155-6726b3ff858f-700w.webp" alt="Organized reports and dashboards" loading="lazy"></div>
                     <div class="feature-icon"><i class="fas fa-folder-tree"></i></div>
                     <h3>Smart Organization</h3>
                     <p>Collections, folders, tags, and metadata keep your library structured and instantly navigable.</p>
-                </a>
-                <a href="users.html" class="feature-card anim">
-                    <div class="feature-icon"><i class="fas fa-share-nodes"></i></div>
-                    <h3>Safe, Simple Sharing</h3>
-                    <p>Share individual files or whole collections via secure links — without sending huge attachments.</p>
-                </a>
-                <a href="users.html" class="feature-card anim">
-                    <div class="feature-icon"><i class="fas fa-code-branch"></i></div>
-                    <h3>Version Control</h3>
-                    <p>Track every edit, compare versions, and always distribute the latest approved file.</p>
-                </a>
-                <a href="users.html" class="feature-card anim">
-                    <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Enterprise-Grade Security</h3>
-                    <p>Encryption, granular roles, and complete audit logs keep every asset protected and accountable.</p>
                 </a>
             </div>
         </div>
@@ -248,7 +267,7 @@
                     <li><i class="fas fa-check"></i> Open full-resolution previews in a sleek lightbox</li>
                     <li><i class="fas fa-check"></i> Works seamlessly on desktop, tablet, and mobile</li>
                 </ul>
-                <a href="library.html" class="btn-primary btn-large">Explore the Asset Library</a>
+                <a href="404.html" class="btn-primary btn-large">Explore the Asset Library</a>
             </div>
         </div>
     </section>
@@ -266,41 +285,10 @@
                     <li><i class="fas fa-layer-group"></i> Dynamic collections that update themselves</li>
                     <li><i class="fas fa-sitemap"></i> Organize by project, campaign, or client</li>
                 </ul>
-                <a href="collections.html" class="btn-primary">Browse Collections</a>
+                <a href="404.html" class="btn-primary">Browse Collections</a>
             </div>
             <div class="showcase-media anim">
-                <div class="showcase-media-window">
-                    <div class="sm-topbar">
-                        <div class="sm-dots"><span></span><span></span><span></span></div>
-                        <div class="sm-url">app.stackly.io/collections</div>
-                    </div>
-                    <div class="sm-body">
-                        <div class="sm-folder-row">
-                            <div class="sm-folder-icon"><i class="fas fa-folder"></i></div>
-                            <div class="sm-folder-info"><strong>Brand Refresh 2026</strong><span>Marketing · Dynamic</span></div>
-                            <span class="sm-folder-count">248 assets</span>
-                        </div>
-                        <div class="sm-folder-row">
-                            <div class="sm-folder-icon"><i class="fas fa-folder"></i></div>
-                            <div class="sm-folder-info"><strong>Product Photography</strong><span>E-commerce · Static</span></div>
-                            <span class="sm-folder-count">340 assets</span>
-                        </div>
-                        <div class="sm-folder-row">
-                            <div class="sm-folder-icon"><i class="fas fa-folder"></i></div>
-                            <div class="sm-folder-info"><strong>Customer Videos</strong><span>Social · Dynamic</span></div>
-                            <span class="sm-folder-count">64 assets</span>
-                        </div>
-                        <div class="sm-tags">
-                            <span class="sm-tag">#hero</span>
-                            <span class="sm-tag">#campaign</span>
-                            <span class="sm-tag">#approved</span>
-                            <span class="sm-tag">#final</span>
-                            <span class="sm-tag">#logo</span>
-                            <span class="sm-tag">#brand</span>
-                            <span class="sm-tag">#2026</span>
-                        </div>
-                    </div>
-                </div>
+                <img src="assets/images/b3.webp" alt="Smart Organization" style="width:100%; height:auto; border-radius:12px;">
             </div>
         </div>
     </section>
@@ -309,55 +297,7 @@
     <section class="showcase alt">
         <div class="container">
             <div class="showcase-media anim">
-                <div class="showcase-media-window">
-                    <div class="sm-topbar">
-                        <div class="sm-dots"><span></span><span></span><span></span></div>
-                        <div class="sm-url">app.stackly.io/analytics</div>
-                    </div>
-                    <div class="sm-body">
-                        <div class="analytics-preview-grid">
-                            <div class="analytics-mini">
-                                <div class="am-icon"><i class="fas fa-download"></i></div>
-                                <strong>128K</strong>
-                                <span>Downloads</span>
-                                <div class="am-trend"><i class="fas fa-arrow-trend-up"></i> 18%</div>
-                            </div>
-                            <div class="analytics-mini">
-                                <div class="am-icon"><i class="fas fa-eye"></i></div>
-                                <strong>486K</strong>
-                                <span>Asset views</span>
-                                <div class="am-trend"><i class="fas fa-arrow-trend-up"></i> 9%</div>
-                            </div>
-                            <div class="analytics-mini">
-                                <div class="am-icon"><i class="fas fa-share-nodes"></i></div>
-                                <strong>34K</strong>
-                                <span>Shares</span>
-                                <div class="am-trend"><i class="fas fa-arrow-trend-up"></i> 22%</div>
-                            </div>
-                            <div class="analytics-mini">
-                                <div class="am-icon"><i class="fas fa-hard-drive"></i></div>
-                                <strong>1.8 TB</strong>
-                                <span>Storage used</span>
-                                <div class="am-trend" style="color:#2e9e6b;"><i class="fas fa-arrow-trend-up"></i> 72%</div>
-                            </div>
-                        </div>
-                        <div class="chart-mini">
-                            <div class="cm-bars">
-                                <div class="cm-bar" style="height:45%"></div>
-                                <div class="cm-bar" style="height:70%"></div>
-                                <div class="cm-bar" style="height:52%"></div>
-                                <div class="cm-bar" style="height:88%"></div>
-                                <div class="cm-bar" style="height:64%"></div>
-                                <div class="cm-bar" style="height:95%"></div>
-                                <div class="cm-bar" style="height:72%"></div>
-                            </div>
-                            <div class="storage-meter">
-                                <div class="meter-head"><span>Storage allocation</span><span>1.8 TB / 2.5 TB</span></div>
-                                <div class="meter-bar"><div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <img src="assets/images/d6.webp" alt="Analytics &amp; Insights" style="width:100%; height:auto; border-radius:12px;">
             </div>
             <div class="showcase-body anim">
                 <span class="section-label">Analytics &amp; Insights</span>
@@ -369,7 +309,7 @@
                     <li><i class="fas fa-hard-drive"></i> Keep an eye on storage across every team</li>
                     <li><i class="fas fa-arrow-trend-up"></i> Export clear reports for stakeholders</li>
                 </ul>
-                <a href="analytics.html" class="btn-primary">View Analytics</a>
+                <a href="404.html" class="btn-primary">View Analytics</a>
             </div>
         </div>
     </section>
@@ -465,8 +405,8 @@
         <div class="container">
             <div class="why-media anim">
                 <div class="why-img">
-                    <img src="assets/images/unsplash-1522071820081-009f0129c71c-1200w.webp" alt="Creative team collaborating">
-                    <a href="library.html" class="play-btn"><i class="fas fa-arrow-right"></i></a>
+                    <img src="assets/images/a3.webp" alt="Creative team collaborating">
+                    <a href="404.html" class="play-btn"><i class="fas fa-arrow-right"></i></a>
                     <div class="why-badge">
                         <span class="badge-num">11x</span>
                         <span class="badge-label">Faster Production<br>Across 380+ Teams</span>
@@ -559,8 +499,8 @@
             <h2>MANAGE YOUR DIGITAL ASSETS <span class="gold-text">SMARTER</span></h2>
             <p>Stop hunting for files and start shipping. Get started with Stackly today — free for 14 days, no credit card required.</p>
             <div class="cta-buttons">
-                <a href="library.html" class="btn-gold btn-large">Get Started</a>
-                <a href="contact.html" class="btn-outline btn-large">Talk to Sales</a>
+                <a href="404.html" class="btn-gold btn-large">Get Started</a>
+                <a href="404.html" class="btn-outline btn-large">Talk to Sales</a>
             </div>
         </div>
     </section>
@@ -610,18 +550,18 @@
                         <li><a href="library.html">Asset Library</a></li>
                         <li><a href="collections.html">Collections</a></li>
                         <li><a href="analytics.html">Analytics</a></li>
-                        <li><a href="users.html">Users &amp; Roles</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Integrations</h4>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
-                        <li><a href="#"><i class="fab fa-figma"></i> Figma</a></li>
-                        <li><a href="#"><i class="fab fa-slack"></i> Slack</a></li>
-                        <li><a href="#"><i class="fab fa-shopify"></i> Shopify</a></li>
-                        <li><a href="#"><i class="fab fa-google-drive"></i> Google Drive</a></li>
+                        <li><a href="404.html"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
+                        <li><a href="404.html"><i class="fab fa-figma"></i> Figma</a></li>
+                        <li><a href="404.html"><i class="fab fa-slack"></i> Slack</a></li>
+                        <li><a href="404.html"><i class="fab fa-shopify"></i> Shopify</a></li>
+                        <li><a href="404.html"><i class="fab fa-google-drive"></i> Google Drive</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -636,14 +576,20 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Stackly. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="index.html">Home</a>
-                    <a href="#">Terms &amp; Conditions</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="404.html">Terms &amp; Conditions</a>
+                    <a href="404.html">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/backtotop.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/aos-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap-init.js"></script>
+    
 </body>
 </html>

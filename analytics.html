@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics � Stackly</title>
+    <title>Analytics — Stackly</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -23,7 +24,7 @@
                     <li><a href="library.html">Asset Library</a></li>
                     <li><a href="collections.html">Collections</a></li>
                     <li class="active"><a href="analytics.html">Analytics</a></li>
-                    <li><a href="users.html">Users &amp; Roles</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -42,7 +43,7 @@
             <li><a href="library.html">Asset Library</a></li>
             <li><a href="collections.html">Collections</a></li>
             <li><a href="analytics.html">Analytics</a></li>
-            <li><a href="users.html">Users &amp; Roles</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="login.html" class="mobile-nav-cta"><i class="fas fa-sign-in-alt"></i> Login</a></li>
         </ul>
@@ -54,10 +55,10 @@
                 <div>
                     <div class="page-crumb"><i class="fas fa-house"></i> Home <i class="fas fa-chevron-right"></i> Analytics</div>
                     <h1>Analytics</h1>
-                    <p>Understand what your team downloads, shares, and reuses � at a glance.</p>
+                    <p>Understand what your team downloads, shares, and reuses — at a glance.</p>
                 </div>
                 <div class="page-hero-actions">
-                    <button class="btn-gold btn-large"><i class="fas fa-file-arrow-down"></i> Export Report</button>
+                    <button class="btn-gold btn-large" id="exportBtn"><i class="fas fa-file-arrow-down"></i> Export Report</button>
                 </div>
             </div>
         </div>
@@ -173,7 +174,7 @@
                         <img src="assets/images/unsplash-1558655146-9f40138edfeb.webp" alt="hero banner" loading="lazy">
                         <div class="ta-name">
                             <strong>hero-banner-v3.psd</strong>
-                            <span>Image � Brand Refresh</span>
+                            <span>Image — Brand Refresh</span>
                         </div>
                         <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">32K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
                         <div class="ta-bar"><i style="width:100%;"></i></div>
@@ -183,7 +184,7 @@
                         <img src="assets/images/unsplash-1485846234645-a62644f84728.webp" alt="promo video" loading="lazy">
                         <div class="ta-name">
                             <strong>promo-review-4k.mov</strong>
-                            <span>Video � Marketing Campaigns</span>
+                            <span>Video — Marketing Campaigns</span>
                         </div>
                         <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">28K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
                         <div class="ta-bar"><i style="width:87%;"></i></div>
@@ -193,7 +194,7 @@
                         <img src="assets/images/unsplash-1441986300917-64674bd600d8.webp" alt="product photo" loading="lazy">
                         <div class="ta-name">
                             <strong>product-lifestyle-01.webp</strong>
-                            <span>Image � Product Photography</span>
+                            <span>Image — Product Photography</span>
                         </div>
                         <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">21K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
                         <div class="ta-bar"><i style="width:66%;"></i></div>
@@ -203,7 +204,7 @@
                         <img src="assets/images/unsplash-1561070791-2526d30994b5.webp" alt="logo" loading="lazy">
                         <div class="ta-name">
                             <strong>logo-final.svg</strong>
-                            <span>Design � Brand &amp; Identity</span>
+                            <span>Design — Brand &amp; Identity</span>
                         </div>
                         <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">15K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
                         <div class="ta-bar"><i style="width:47%;"></i></div>
@@ -213,7 +214,7 @@
                         <img src="assets/images/unsplash-1450101499163-c8848c66ca85.webp" alt="brand guide" loading="lazy">
                         <div class="ta-name">
                             <strong>brand-guide-2026.pdf</strong>
-                            <span>Document � Reports &amp; Presentations</span>
+                            <span>Document — Reports &amp; Presentations</span>
                         </div>
                         <span style="font-size:.78rem; font-weight:600; color:var(--navy); white-space:nowrap;">11K <span style="font-weight:400; color:var(--muted);">downloads</span></span>
                         <div class="ta-bar"><i style="width:34%;"></i></div>
@@ -237,22 +238,22 @@
                     <div class="activity-list">
                         <div class="activity-item">
                             <img src="assets/images/unsplash-1494790108377-be9c29b29330-120w.webp" alt="Amara" loading="lazy">
-                            <div class="av-info"><strong>Amara Lewis</strong><span>224 uploads � 86 shares</span></div>
+                            <div class="av-info"><strong>Amara Lewis</strong><span>224 uploads — 86 shares</span></div>
                             <div class="av-metric"><strong>1.2K</strong><span>assets used</span></div>
                         </div>
                         <div class="activity-item">
                             <img src="assets/images/unsplash-1534528741775-53994a69daeb-120w.webp" alt="Marco" loading="lazy">
-                            <div class="av-info"><strong>Marco Reyes</strong><span>148 uploads � 210 shares</span></div>
+                            <div class="av-info"><strong>Marco Reyes</strong><span>148 uploads — 210 shares</span></div>
                             <div class="av-metric"><strong>980</strong><span>assets used</span></div>
                         </div>
                         <div class="activity-item">
                             <img src="assets/images/unsplash-1507003211169-0a1dd7228f2d-120w.webp" alt="Derek" loading="lazy">
-                            <div class="av-info"><strong>Derek Kim</strong><span>96 uploads � 64 shares</span></div>
+                            <div class="av-info"><strong>Derek Kim</strong><span>96 uploads — 64 shares</span></div>
                             <div class="av-metric"><strong>742</strong><span>assets used</span></div>
                         </div>
                         <div class="activity-item">
                             <img src="assets/images/unsplash-1544005313-94ddf0286df2-120w.webp" alt="Nina" loading="lazy">
-                            <div class="av-info"><strong>Nina Alvarez</strong><span>54 uploads � 33 shares</span></div>
+                            <div class="av-info"><strong>Nina Alvarez</strong><span>54 uploads — 33 shares</span></div>
                             <div class="av-metric"><strong>510</strong><span>assets used</span></div>
                         </div>
                     </div>
@@ -410,6 +411,25 @@
         </div>
     </section>
 
+    <!-- Visual Insights -->
+    <section class="showcase">
+        <div class="container">
+            <div class="showcase-body anim">
+                <span class="section-label">Visual Insights</span>
+                <h2>The whole picture, without the guesswork.</h2>
+                <p>Live visual summaries make it easy to see exactly which assets, teams, and campaigns drive results — then act before momentum fades.</p>
+                <ul class="showcase-list">
+                    <li><i class="fas fa-chart-bar"></i> Intuitive dashboards for every workflow</li>
+                    <li><i class="fas fa-bolt"></i> Updates in real time as your team works</li>
+                    <li><i class="fas fa-wand-magic-sparkles"></i> AI-suggested insights and anomalies</li>
+                </ul>
+            </div>
+            <div class="showcase-media anim">
+                <img src="assets/images/d6.webp" alt="Stackly analytics dashboard" style="width:100%; height:auto; border-radius:16px; box-shadow:0 20px 45px rgba(15,23,42,0.14);">
+            </div>
+        </div>
+    </section>
+
     <!-- Premium Newsletter Section -->
     <section class="newsletter-cta">
         <div class="nc-lines"></div>
@@ -455,18 +475,18 @@
                         <li><a href="library.html">Asset Library</a></li>
                         <li><a href="collections.html">Collections</a></li>
                         <li><a href="analytics.html">Analytics</a></li>
-                        <li><a href="users.html">Users &amp; Roles</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Integrations</h4>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
-                        <li><a href="#"><i class="fab fa-figma"></i> Figma</a></li>
-                        <li><a href="#"><i class="fab fa-slack"></i> Slack</a></li>
-                        <li><a href="#"><i class="fab fa-shopify"></i> Shopify</a></li>
-                        <li><a href="#"><i class="fab fa-google-drive"></i> Google Drive</a></li>
+                        <li><a href="404.html"><i class="ai-adobe" aria-hidden="true"></i> Adobe CC</a></li>
+                        <li><a href="404.html"><i class="fab fa-figma"></i> Figma</a></li>
+                        <li><a href="404.html"><i class="fab fa-slack"></i> Slack</a></li>
+                        <li><a href="404.html"><i class="fab fa-shopify"></i> Shopify</a></li>
+                        <li><a href="404.html"><i class="fab fa-google-drive"></i> Google Drive</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -481,14 +501,19 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Stackly. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="index.html">Home</a>
-                    <a href="#">Terms &amp; Conditions</a>
-                    <a href="#">Privacy Policy</a>
+                    <a href="404.html">Terms &amp; Conditions</a>
+                    <a href="404.html">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/backtotop.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/aos-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap-init.js"></script>
 </body>
 </html>

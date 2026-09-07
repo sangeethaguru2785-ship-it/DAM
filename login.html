@@ -8,109 +8,152 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
 </head>
 <body>
 
-<div class="auth-page">
-    <div class="auth-shell">
+<div class="au-page">
 
-        <div class="auth-head">
-            <a href="index.html" class="auth-logo">
+    <!-- Visual showcase panel -->
+    <aside class="au-show">
+        <div class="au-show-top">
+            <a href="index.html" class="au-brand">
                 <img src="assets/images/logo.webp" alt="Stackly">
             </a>
-            <h1>Welcome <span>Back</span></h1>
-            <p>Sign in to your Stackly workspace to manage your digital assets.</p>
+            <span class="au-cus-tag">Welcome back</span>
         </div>
 
-        <div class="auth-card">
+        <div class="au-show-body">
+            <h2>Your assets, <em>right</em> where you left them.</h2>
+            <p>Step back into the command center for every image, video, and document your team creates — organized, protected, and ready to share.</p>
+
+            <div class="au-collage">
+                <div class="au-collage-grid">
+                    <div class="au-collage-photo big">
+                        <img src="assets/images/unsplash-1522071820081-009f0129c71c-1200w.webp" alt="Creative team collaborating">
+                    </div>
+                    <div class="au-collage-photo">
+                        <img src="assets/images/unsplash-1558655146-9f40138edfeb-700w.webp" alt="Design asset">
+                    </div>
+                    <div class="au-collage-photo">
+                        <img src="assets/images/unsplash-1485846234645-a62644f84728-700w.webp" alt="Video asset">
+                    </div>
+                </div>
+
+                <div class="au-float f1">
+                    <span class="au-f-ico"><i class="fas fa-shield-halved"></i></span>
+                    <div>
+                        <strong>Encrypted</strong>
+                        <span>SOC 2 · TLS 1.3</span>
+                    </div>
+                </div>
+                <div class="au-float f2">
+                    <span class="au-f-ico"><i class="fas fa-bolt"></i></span>
+                    <div>
+                        <strong>Fast delivery</strong>
+                        <span>&lt;12s from upload to link</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="au-show-foot">
+            <span class="au-sf-item"><i class="fas fa-infinity"></i> Unlimited storage tiers</span>
+            <span class="au-sf-item"><i class="fas fa-users"></i> Built for full teams</span>
+            <span class="au-sf-item"><i class="fas fa-cloud"></i> Global CDN</span>
+        </div>
+    </aside>
+
+    <!-- Form panel -->
+    <main class="au-form-panel">
+        <div class="au-form-wrap">
+
+            <header class="au-head">
+                <div class="au-eyebrow">Secure sign in</div>
+                <h1>Welcome <span>back</span></h1>
+                <p>Sign in to your Stackly workspace to pick up where you left off.</p>
+            </header>
+
             <form id="loginForm" novalidate>
 
-                <!-- Role selection -->
-                <label class="auth-label" id="roleFieldLabel">Sign in as</label>
-                <div class="auth-role" id="roleSelect">
-                    <div class="auth-role-card" data-role="admin">
-                        <span class="role-check"><i class="fas fa-check"></i></span>
-                        <div class="role-ic admin"><i class="fas fa-user-shield"></i></div>
-                        <strong>Admin</strong>
-                        <span>Full access &amp; controls</span>
+                <div class="au-access">
+                    <span>I want to sign in as a</span>
+                    <div class="au-toggle" id="toggleRole">
+                        <button type="button" class="on" data-role="admin">Team Admin</button>
+                        <button type="button" data-role="user">Team User</button>
                     </div>
-                    <div class="auth-role-card" data-role="user">
-                        <span class="role-check"><i class="fas fa-check"></i></span>
-                        <div class="role-ic user"><i class="fas fa-user"></i></div>
-                        <strong>User</strong>
-                        <span>Manage your assets</span>
-                    </div>
-                </div>
-                <div class="auth-field error hidden" id="roleError">
-                    <div class="auth-error"><i class="fas fa-exclamation-circle"></i> Please select a role.</div>
                 </div>
 
-                <!-- Email -->
-                <div class="auth-field" id="field-email">
+                <div class="au-field au-reveal" id="field-email" style="animation-delay:0.05s">
                     <label for="email">Email address</label>
-                    <div class="auth-input-wrap">
-                        <i class="fas fa-envelope auth-input-lead"></i>
-                        <input type="email" id="email" class="auth-input" placeholder="you@company.com" autocomplete="email">
+                    <div class="au-in-wrap">
+                        <i class="fas fa-envelope au-in-ico"></i>
+                        <input type="email" id="email" class="au-in" placeholder="you@company.com" autocomplete="email">
                     </div>
-                    <div class="auth-error hidden" id="emailError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                    <div class="au-error" id="emailError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
                 </div>
 
-                <!-- Password -->
-                <div class="auth-field" id="field-password">
-                    <label>Password <a href="#" id="forgotLink">Forgot password?</a></label>
-                    <div class="auth-input-wrap">
-                        <i class="fas fa-lock auth-input-lead"></i>
-                        <input type="password" id="password" class="auth-input" placeholder="Enter your password" autocomplete="current-password">
-                        <button type="button" class="auth-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
+                <div class="au-field au-reveal" id="field-password" style="animation-delay:0.1s">
+                    <label for="password">Password <a href="#" id="forgotLink">Forgot password?</a></label>
+                    <div class="au-in-wrap">
+                        <i class="fas fa-lock au-in-ico"></i>
+                        <input type="password" id="password" class="au-in" placeholder="Enter your password" autocomplete="current-password">
+                        <button type="button" class="au-eye" data-toggle="password" aria-label="Show password"><i class="fas fa-eye"></i></button>
                     </div>
-                    <div class="auth-error hidden" id="passwordError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
+                    <div class="au-error" id="passwordError"><i class="fas fa-exclamation-circle"></i> <span></span></div>
                 </div>
 
-                <!-- Options -->
-                <div class="auth-row">
-                    <label class="auth-check">
-                        <input type="checkbox" id="remember">
-                        <span class="auth-check-box"><i class="fas fa-check"></i></span>
-                        Remember me
-                    </label>
+                <div class="au-row au-reveal" style="animation-delay:0.15s">
+                    <div class="au-check-wrap" id="rememberWrap">
+                        <label class="au-check">
+                            <input type="checkbox" id="remember">
+                            <span class="au-check-box"><i class="fas fa-check"></i></span>
+                            Remember me
+                        </label>
+                        <div class="au-check-err" id="rememberErr"><i class="fas fa-exclamation-circle"></i> Please select Remember Me to continue.</div>
+                    </div>
                 </div>
 
-                <button type="submit" class="auth-submit">Sign In <i class="fas fa-arrow-right"></i></button>
+                <button type="submit" class="au-submit au-reveal" style="animation-delay:0.2s">Sign In <i class="fas fa-arrow-right"></i></button>
 
-                <div class="auth-alert" id="authAlert"><i class="fas fa-exclamation-triangle"></i> <span id="authAlertMsg"></span></div>
+                <div class="au-error-msg" id="auAlert"><i class="fas fa-exclamation-triangle"></i> <span id="auAlertMsg"></span></div>
+
+                <div class="au-divider au-reveal" style="animation-delay:0.25s">or continue with</div>
+                <div class="au-alt au-reveal" style="animation-delay:0.28s">
+                    <a href="404.html" class="au-alt-btn" id="googleBtn"><i class="fab fa-google"></i> Google</a>
+                    <a href="#" class="au-alt-btn" id="ssoBtn"><i class="fas fa-id-badge"></i> Single Sign-On</a>
+                </div>
             </form>
 
-            <div class="auth-switch">
+            <div class="au-switch au-reveal" style="animation-delay:0.3s">
                 Don't have an account? <a href="signup.html">Create one</a>
             </div>
-            <div style="text-align:center;">
-                <a href="index.html" class="auth-back"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+            <div style="text-align:center">
+                <a href="index.html" class="au-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
             </div>
         </div>
+    </main>
 
-    </div>
 </div>
 
 <script>
 (function(){
-    var role = null;
-    var roleCards = document.querySelectorAll('.auth-role-card');
-    var roleError = document.getElementById('roleError');
+    var role = 'admin';
+    var toggleBtns = document.querySelectorAll('#toggleRole button');
 
-    roleCards.forEach(function(card){
-        card.addEventListener('click', function(){
-            roleCards.forEach(function(c){ c.classList.remove('sel'); });
-            card.classList.add('sel');
-            role = card.getAttribute('data-role');
-            roleError.classList.add('hidden');
+    toggleBtns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+            toggleBtns.forEach(function(b){ b.classList.remove('on'); });
+            btn.classList.add('on');
+            role = btn.getAttribute('data-role');
         });
     });
 
-    /* Show / Hide password */
     document.querySelectorAll('[data-toggle="password"]').forEach(function(btn){
         btn.addEventListener('click', function(){
-            var input = this.parentNode.querySelector('.auth-input');
+            var input = this.parentNode.querySelector('.au-in');
             var ic = this.querySelector('i');
             if(input.type === 'password'){
                 input.type = 'text';
@@ -138,12 +181,12 @@
         }
     }
 
-    function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+    function validEmail(v){ return /^[A-Za-z0-9.]+@[A-Za-z0-9.]+\.[A-Za-z0-9.]+$/.test(v); }
     function validPassword(v){ return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(v); }
 
     function showAlert(msg){
-        var a = document.getElementById('authAlert');
-        document.getElementById('authAlertMsg').textContent = msg;
+        var a = document.getElementById('auAlert');
+        document.getElementById('auAlertMsg').textContent = msg;
         a.classList.add('show');
         setTimeout(function(){ a.classList.remove('show'); }, 4000);
     }
@@ -154,58 +197,86 @@
 
         var email = document.getElementById('email').value.trim();
         var password = document.getElementById('password').value;
-        var remember = document.getElementById('remember').checked;
+        var rememberChecked = document.getElementById('remember').checked;
+        var rememberWrap = document.getElementById('rememberWrap');
         var ok = true;
 
-        if(!role){
-            roleError.classList.remove('hidden');
-            ok = false;
-        } else {
-            roleError.classList.add('hidden');
-        }
+        if(!rememberChecked){ rememberWrap.classList.add('err'); ok = false; }
+        else rememberWrap.classList.remove('err');
 
         if(!email){ setError('email','Email address is required.'); ok = false; }
         else if(!validEmail(email)){ setError('email','Please enter a valid email address.'); ok = false; }
         else setError('email', null);
 
         if(!password){ setError('password','Password is required.'); ok = false; }
+        else if(!validPassword(password)){ setError('password','Password must be 8+ characters with upper, lower, number, and special character.'); ok = false; }
         else setError('password', null);
 
         if(!ok) return;
 
-        /* Persist role for demo purposes */
         try { localStorage.setItem('stackly_role', role); } catch(err){}
-        if(remember){
+        if(rememberChecked){
             try { localStorage.setItem('stackly_remember', email); } catch(err){}
         }
+        try {
+            var n = email.split('@')[0].split(/[._\-]+/).map(function(w){ return w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : ''; }).join(' ').trim();
+            localStorage.setItem('stackly_name', n);
+            localStorage.setItem('stackly_email', email);
+        } catch(err){}
 
-        /* Redirect based on role */
         var dest = role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html';
-        showAlert('Signing in as ' + (role === 'admin' ? 'Admin' : 'User') + '…');
+        showAlert('Signing in as ' + (role === 'admin' ? 'Team Admin' : 'Team User') + '…');
         setTimeout(function(){ window.location.href = dest; }, 700);
     });
 
-    /* Restore remembered email */
     try {
         var saved = localStorage.getItem('stackly_remember');
         if(saved){
             document.getElementById('email').value = saved;
-            document.getElementById('remember').checked = true;
         }
     } catch(err){}
 
     document.getElementById('forgotLink').addEventListener('click', function(e){
         e.preventDefault();
-        showAlert('Password reset instructions have been sent to your email.');
+        window.location.href = '404.html';
     });
 
-    /* Clear error on typing */
+    document.getElementById('googleBtn').addEventListener('click', function(e){
+        e.preventDefault();
+        window.location.href = '404.html';
+    });
+
+    document.getElementById('ssoBtn').addEventListener('click', function(e){
+        e.preventDefault();
+        window.location.href = '404.html';
+    });
+
     ['email','password'].forEach(function(id){
         document.getElementById(id).addEventListener('input', function(){
             setError(id, null);
         });
     });
+
+    document.getElementById('remember').addEventListener('change', function(){
+        document.getElementById('rememberWrap').classList.remove('err');
+    });
 })();
 </script>
+    <script>
+/** Email fields accept only A-Z, a-z, 0-9, @ and . — reject spaces & other specials */
+document.addEventListener('input', function (e) {
+    if (e.target && e.target.type === 'email') {
+        var clean = e.target.value.replace(/[^A-Za-z0-9@.]/g, '');
+        if (clean !== e.target.value) e.target.value = clean;
+    }
+}, true);
+</script>
+    <script src="assets/js/backtotop.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/aos-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsap-init.js"></script>
+    
 </body>
 </html>
